@@ -10,7 +10,7 @@
             <div class="card-body">
                 <form action="{{ URL::to('diagnosa') }}" method="post">
                     @csrf
-                    <div class="mb-3 row">
+                    {{-- <div class="mb-3 row">
                         <label for="nama_pemilik" class="col-sm-2 col-form-label text-custom">Nama Pemilik</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control @error('nama_pemilik') is-invalid @enderror"
@@ -21,7 +21,7 @@
                                 </div>
                             @enderror
                         </div>
-                    </div>
+                    </div> --}}
                     @if (session()->has('error'))
                         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                             <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -49,36 +49,36 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-                    <div class="container mb-3">
-                        <div class="card kartu-custom">
-                            <div class="card-header text-white fw-bold">
+                    {{-- <div class="container mb-3"> --}}
+                        {{-- <div class="card kartu-custom"> --}}
+                            {{-- <div class="card-header text-white fw-bold">
                                 <h5 class="card-title">Pilih Gejala</h5>
-                            </div>
+                            </div> --}}
                             <div class="row justify-content-center">
                                 @foreach ($dataGejala as $gejala)
                                     <div class="col-sm-12 col-md-6 col-lg-4 ">
                                         <div class="card-body px-4">
+                                            <div id="content " style="overflow: hidden" height="175">
+                                                @if (strpos($gejala['media'], $gejala['kode_gejala']) !== false)
+                                                    <img src="{{ asset('gejala/' . $gejala['media']) }}" alt="Image"
+                                                        height="175">
+                                                @else
+                                                    <iframe height="175" src="{{ $gejala['media'] }}" frameborder="1"
+                                                        allowfullscreen></iframe>
+                                                @endif
+                                            </div>
                                             <input type="checkbox" class="form-check-input" name="resultGejala[]"
                                                 id="checkbox{{ $gejala['kode_gejala'] }}"
                                                 value="{{ $gejala['kode_gejala'] }}"
                                                 @if (is_array(old('resultGejala')) && in_array($gejala['kode_gejala'], old('resultGejala'))) checked @endif>
                                             <label for="checkbox{{ $gejala['kode_gejala'] }}"
                                                 class="text-dark"><bold>{{ $gejala['kode_gejala']}}</bold> - {{$gejala['gejala'] }}</label>
-                                            <div id="content ">
-                                                @if (strpos($gejala['media'], $gejala['kode_gejala']) !== false)
-                                                    <img src="{{ asset('gejala/' . $gejala['media']) }}" alt="Image"
-                                                        width="315">
-                                                @else
-                                                    <iframe width="315" src="{{ $gejala['media'] }}" frameborder="0"
-                                                        allowfullscreen></iframe>
-                                                @endif
-                                            </div>
                                         </div>
                                     </div>
                                 @endforeach
                             </div>
-                        </div>
-                    </div>
+                        {{-- </div> --}}
+                    {{-- </div> --}}
                     {{-- <table class="table table-bordered custom-table" style="width: 100%">
                         <colgroup>
                             <col span="1" style="width: 3%;">
