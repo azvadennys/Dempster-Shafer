@@ -48,49 +48,49 @@ class DiagnosaController extends Controller
         if ($arrHasilUser == null) {
             return back()->withInput()->with('error', 'Anda belum memilih gejala');
         } else {
-            if (count($arrHasilUser) < Penyakit::count() + 1) {
-                return back()->withInput()->with('error', 'Minimal gejala yang dipilih adalah ' . (Penyakit::count() + 1) . ' gejala');
-            } else {
-                foreach ($arrHasilUser as $key => $value) {
-                    $dataPenyakit[$key] = BasisPengetahuan::where('kode_gejala', $value)
-                        ->select('kode_penyakit')
-                        ->get()
-                        ->toArray();
-                    foreach ($dataPenyakit[$key] as $a => $b) {
-                        $resultData[$key]['daftar_penyakit'][$a] = $b['kode_penyakit'];
-                    }
-                    $dataNilaiDensitas[$key] = Gejala::where('kode_gejala', $value)
-                        ->select('nilai_densitas', 'gejala')
-                        ->get()
-                        ->toArray();
-                    $dataGejala[$key] = $dataNilaiDensitas[$key][0]['gejala'];
-                    $resultData[$key]['belief'] = $dataNilaiDensitas[$key][0]['nilai_densitas'];
-                    $resultData[$key]['plausibility'] = 1 - $dataNilaiDensitas[$key][0]['nilai_densitas'];
+            // if (count($arrHasilUser) < Penyakit::count() + 1) {
+            //     return back()->withInput()->with('error', 'Minimal gejala yang dipilih adalah ' . (Penyakit::count() + 1) . ' gejala');
+            // } else {
+            foreach ($arrHasilUser as $key => $value) {
+                $dataPenyakit[$key] = BasisPengetahuan::where('kode_gejala', $value)
+                    ->select('kode_penyakit')
+                    ->get()
+                    ->toArray();
+                foreach ($dataPenyakit[$key] as $a => $b) {
+                    $resultData[$key]['daftar_penyakit'][$a] = $b['kode_penyakit'];
                 }
-
-                $variabelTampilan = $this->mulaiPerhitungan($resultData);
-
-                foreach ($dataGejala as $key => $value) {
-                    $variabelTampilan['Gejala_Penyakit'][$key]['kode_gejala'] = $arrHasilUser[$key];
-                    $variabelTampilan['Gejala_Penyakit'][$key]['nama_gejala'] = $value;
-                }
-
-                $diagnosaSavedData = [
-                    'nama_penyakit' => $variabelTampilan['Nama_Penyakit']['nama_penyakit'],
-                    'nilai_belief' => $variabelTampilan['Nilai_Belief_Penyakit'],
-                    'persentase_penyakit' => $variabelTampilan['Persentase_Penyakit'],
-                    'gejala_penyakit' => $variabelTampilan['Gejala_Penyakit']
-                ];
-
-                $diagnosa = new Diagnosa();
-                $diagnosa->nama_pemilik = $validateReq['nama_pemilik'];
-                $diagnosa->diagnosa = json_encode($diagnosaSavedData);
-                $diagnosa->solusi = json_encode($variabelTampilan['Solusi_Penyakit']);
-                $diagnosa->save();
-                $idDiagnosa = $diagnosa->id_diagnosa;
-
-                return redirect()->to('diagnosa/' . $idDiagnosa);
+                $dataNilaiDensitas[$key] = Gejala::where('kode_gejala', $value)
+                    ->select('nilai_densitas', 'gejala')
+                    ->get()
+                    ->toArray();
+                $dataGejala[$key] = $dataNilaiDensitas[$key][0]['gejala'];
+                $resultData[$key]['belief'] = $dataNilaiDensitas[$key][0]['nilai_densitas'];
+                $resultData[$key]['plausibility'] = 1 - $dataNilaiDensitas[$key][0]['nilai_densitas'];
             }
+
+            $variabelTampilan = $this->mulaiPerhitungan($resultData);
+
+            foreach ($dataGejala as $key => $value) {
+                $variabelTampilan['Gejala_Penyakit'][$key]['kode_gejala'] = $arrHasilUser[$key];
+                $variabelTampilan['Gejala_Penyakit'][$key]['nama_gejala'] = $value;
+            }
+            // dd($variabelTampilan);
+            $diagnosaSavedData = [
+                'nama_penyakit' => $variabelTampilan['Nama_Penyakit'],
+                'nilai_belief' => $variabelTampilan['Nilai_Belief_Penyakit'],
+                'persentase_penyakit' => $variabelTampilan['Persentase_Penyakit'],
+                'gejala_penyakit' => $variabelTampilan['Gejala_Penyakit']
+            ];
+
+            $diagnosa = new Diagnosa();
+            $diagnosa->nama_pemilik = $validateReq['nama_pemilik'];
+            $diagnosa->diagnosa = json_encode($diagnosaSavedData);
+            $diagnosa->solusi = json_encode($variabelTampilan['Solusi_Penyakit']);
+            $diagnosa->save();
+            $idDiagnosa = $diagnosa->id_diagnosa;
+
+            return redirect()->to('diagnosa/' . $idDiagnosa);
+            // }
         }
     }
 
@@ -126,9 +126,8 @@ class DiagnosaController extends Controller
             ->select('solusi')
             ->get()
             ->toArray()[0];
-
         $jsonData = [
-            'Nama_Penyakit' => $dataPenyakit,
+            'Nama_Penyakit' => $kodePenyakit . ' - ' . $dataPenyakit['nama_penyakit'],
             'Nilai_Belief_Penyakit' => $nilaiBelief,
             'Persentase_Penyakit' => $persentase,
             'Solusi_Penyakit' => $dataSolusi,

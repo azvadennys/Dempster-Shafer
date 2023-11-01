@@ -25,28 +25,132 @@ class CreateTabelDataPenyakit extends Migration
 
         $insertedData = [
             [
-                'kode_penyakit' => 'P01',
-                'nama_penyakit' => 'Cacing Hati',
+                'kode_penyakit' => 'P1',
+                'nama_penyakit' => 'AVIAN INFLUENZA (AI)',
                 'solusi' => json_encode([
-                    '- Pemberian obat cacing yang dapat membasmi cacing hati, seperti Wormection plus/Wormection Plus-B;',
-                    '- Pemberian multivitamin seperti ADE-Plexinj/ Injeksi Vitamin B Kompleks;',
-                    '- Melakukan sanitasi kandang dan peternakan dengan membersihkan, mencuci dan menyemprot, dengan desinfektan (Neo antisep, Medisep) setiap hari.'
+                    '-',
                 ]),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'kode_penyakit' => 'P02',
-                'nama_penyakit' => 'Cacing Gilig',
+                'kode_penyakit' => 'P2',
+                'nama_penyakit' => 'NEWCASTLE DISEASE (ND)',
                 'solusi' => json_encode([
-                    '- Pemberian obat cacing yang dapat memberantas cacing gilig, yaitu Wormzolk;',
-                    '- Melakukan sanitasi kandang dan peternakan dengan membersihkan, mencuci dan menyemprot, dengan desinfektan (Neo antisep, Medisep atau Formades untuk kandang kosong) setiap hari;',
-                    '- Memberikan antibiotik;',
-                    '- Pada pakan ditaburkan copper sulphate untuk mencegah perkembangan larva cacing.'
+                    '-',
                 ]),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ]
+            ],
+            [
+                'kode_penyakit' => 'P3',
+                'nama_penyakit' => 'CACAR UNGGAS (FOWL FOX)',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P4',
+                'nama_penyakit' => 'INFECTIOUS BRONCHITIS (IB)',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P5',
+                'nama_penyakit' => 'INFECTION LARYNGO TRACHEITIS (ILT)',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P6',
+                'nama_penyakit' => 'ENCEPHALOMYELITIS (AE)',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P7',
+                'nama_penyakit' => 'CHICKEN ANEMIA SYNDROME (CAS)',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P8',
+                'nama_penyakit' => 'HELICOPTER DISEASE',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P9',
+                'nama_penyakit' => 'INCLUSION BODY HEPATITIS (IBH)',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P10',
+                'nama_penyakit' => 'INFECTIOUS BURSAL DISEASE (IBD)',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P11',
+                'nama_penyakit' => 'LYMPHOID LEUKOSIS (LL)',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P12',
+                'nama_penyakit' => 'MAREK’S DISEASES',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P13',
+                'nama_penyakit' => 'SWOLLEN HEAD SYNDROME (SHS)',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P14',
+                'nama_penyakit' => 'VIRAL ARTHITIS',
+                'solusi' => json_encode([
+                    '-',
+                ]),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+
         ];
 
         DB::table('tabel_data_penyakit')->insert($insertedData);

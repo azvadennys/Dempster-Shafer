@@ -24,130 +24,582 @@ class CreateTabelBasisPengetahuan extends Migration
 
         $insertedData = [
             [
-                'kode_penyakit' => 'P01',
-                'kode_gejala' => 'G02',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P01',
-                'kode_gejala' => 'G04',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P01',
-                'kode_gejala' => 'G05',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P01',
-                'kode_gejala' => 'G06',
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G1',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ], [
-                'kode_penyakit' => 'P01',
-                'kode_gejala' => 'G07',
+                'kode_penyakit' => 'P3',
+                'kode_gejala' => 'G1',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P5',
+                'kode_gejala' => 'G1',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P6',
+                'kode_gejala' => 'G1',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'kode_penyakit' => 'P01',
-                'kode_gejala' => 'G08',
+                'kode_penyakit' => 'P6',
+                'kode_gejala' => 'G2',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'kode_penyakit' => 'P01',
-                'kode_gejala' => 'G09',
+                'kode_penyakit' => 'P6',
+                'kode_gejala' => 'G3',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'kode_penyakit' => 'P01',
+                'kode_penyakit' => 'P6',
+                'kode_gejala' => 'G4',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G5',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P6',
+                'kode_gejala' => 'G5',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P10',
+                'kode_gejala' => 'G5',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G5',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P14',
+                'kode_gejala' => 'G5',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G6',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+
+            [
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G7',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G8',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P4',
+                'kode_gejala' => 'G8',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G9',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G10',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G10',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P10',
+                'kode_gejala' => 'G10',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P12',
                 'kode_gejala' => 'G10',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'kode_penyakit' => 'P01',
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G11',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G11',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P4',
+                'kode_gejala' => 'G11',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P5',
                 'kode_gejala' => 'G11',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'kode_penyakit' => 'P01',
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G12',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G12',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P4',
+                'kode_gejala' => 'G12',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P5',
                 'kode_gejala' => 'G12',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'kode_penyakit' => 'P01',
-                'kode_gejala' => 'G14',
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G13',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P01',
-                'kode_gejala' => 'G15',
+            ], [
+                'kode_penyakit' => 'P10',
+                'kode_gejala' => 'G13',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P02',
-                'kode_gejala' => 'G01',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P02',
-                'kode_gejala' => 'G03',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P02',
-                'kode_gejala' => 'G04',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P02',
-                'kode_gejala' => 'G07',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P02',
-                'kode_gejala' => 'G08',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P02',
-                'kode_gejala' => 'G10',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P02',
-                'kode_gejala' => 'G12',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'kode_penyakit' => 'P02',
+            ], [
+                'kode_penyakit' => 'P11',
                 'kode_gejala' => 'G13',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'kode_penyakit' => 'P02',
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G14',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G14',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P6',
+                'kode_gejala' => 'G14',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P1',
                 'kode_gejala' => 'G15',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ]
+            ], [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G15',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G15',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G16',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P10',
+                'kode_gejala' => 'G16',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G17',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P3',
+                'kode_gejala' => 'G17',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P7',
+                'kode_gejala' => 'G17',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G17',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P14',
+                'kode_gejala' => 'G17',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G18',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P3',
+                'kode_gejala' => 'G18',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P4',
+                'kode_gejala' => 'G18',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P5',
+                'kode_gejala' => 'G18',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G18',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P3',
+                'kode_gejala' => 'G19',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+
+            [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G20',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P3',
+                'kode_gejala' => 'G20',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P7',
+                'kode_gejala' => 'G20',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P8',
+                'kode_gejala' => 'G20',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P13',
+                'kode_gejala' => 'G20',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P14',
+                'kode_gejala' => 'G20',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P3',
+                'kode_gejala' => 'G21',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P7',
+                'kode_gejala' => 'G21',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P8',
+                'kode_gejala' => 'G22',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P8',
+                'kode_gejala' => 'G23',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P8',
+                'kode_gejala' => 'G24',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P8',
+                'kode_gejala' => 'G25',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P8',
+                'kode_gejala' => 'G26',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P8',
+                'kode_gejala' => 'G27',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P1',
+                'kode_gejala' => 'G28',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P9',
+                'kode_gejala' => 'G28',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P4',
+                'kode_gejala' => 'G29',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P5',
+                'kode_gejala' => 'G29',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P4',
+                'kode_gejala' => 'G30',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P5',
+                'kode_gejala' => 'G30',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P4',
+                'kode_gejala' => 'G31',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P9',
+                'kode_gejala' => 'G32',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P10',
+                'kode_gejala' => 'G32',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P13',
+                'kode_gejala' => 'G32',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P3',
+                'kode_gejala' => 'G33',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P9',
+                'kode_gejala' => 'G33',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P10',
+                'kode_gejala' => 'G33',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P11',
+                'kode_gejala' => 'G33',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G33',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P10',
+                'kode_gejala' => 'G34',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P10',
+                'kode_gejala' => 'G35',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P5',
+                'kode_gejala' => 'G36',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P5',
+                'kode_gejala' => 'G37',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P5',
+                'kode_gejala' => 'G38',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P11',
+                'kode_gejala' => 'G39',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P11',
+                'kode_gejala' => 'G40',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P3',
+                'kode_gejala' => 'G41',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P11',
+                'kode_gejala' => 'G41',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G41',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G42',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G43',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G44',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G45',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G46',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P12',
+                'kode_gejala' => 'G47',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ], [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G47',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G48',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G49',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P2',
+                'kode_gejala' => 'G50',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P13',
+                'kode_gejala' => 'G51',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P13',
+                'kode_gejala' => 'G52',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P14',
+                'kode_gejala' => 'G53',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'kode_penyakit' => 'P14',
+                'kode_gejala' => 'G54',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+
         ];
 
         DB::table('tabel_basis_pengetahuan')->insert($insertedData);
