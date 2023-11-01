@@ -14,7 +14,7 @@
     {{-- Custom Style --}}
     <link rel=" stylesheet" href="{{ URL::to('bin/css/style.css') }}">
 
-    <title>SP DempsterShafer{{ isset($titlePage) ? ' || ' . $titlePage : '' }}</title>
+    <title>Sistem Pakar{{ isset($titlePage) ? ' || ' . $titlePage : '' }}</title>
 </head>
 
 <body>

@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-database"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SP Dempster Shafer</div>
+        <div class="sidebar-brand-text mx-3">Sistem Pakar</div>
     </a>
 
     <!-- Divider -->
