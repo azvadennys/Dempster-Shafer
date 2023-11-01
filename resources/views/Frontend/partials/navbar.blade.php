@@ -19,6 +19,29 @@
                     <a class="nav-link {{ $navLink == 'pedoman' ? 'active' : '' }}"
                         href="{{ URL::to('pedoman') }}">Pedoman</a>
                 </li>
+
+                @auth
+                    @if (auth()->user()->role == 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link {{ $navLink == 'Dashboard' ? 'active' : '' }}"
+                                href="{{ route('dashboard') }}">Dashboard</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link {{ $navLink == 'data-riwayat' ? 'active' : '' }}"
+                                href="{{ route('data.riwayat') }}">Riwayat Diagnosis</a>
+                        </li>
+                    @endif
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </a>
+                    </li>
+                @endauth
+
+
+
             </ul>
         </div>
     </div>

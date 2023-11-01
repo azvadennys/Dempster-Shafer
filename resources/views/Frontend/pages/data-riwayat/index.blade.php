@@ -1,11 +1,11 @@
-@extends('Backend.layouts.main')
+@extends('Frontend.layouts.main')
 
 @section('content-wrapper')
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-custom-2-800">
+        <div class="d-sm-flex align-items-center justify-content-between my-4">
+            <h1 class="h3 mb-0 text-custom-2-800 text-dark">
                 <i class="fas fa-history"></i>
                 {{ $titlePage }}
             </h1>
@@ -47,10 +47,9 @@
                     <thead class="text-center">
                         <tr>
                             <th class="align-middle">No.</th>
-                            <th class="align-middle">Nama Pemilik</th>
-                            <th class="align-middle">Dibuat</th>
                             <th class="align-middle">Hasil Diagnosa</th>
-                            <th>Action</th>
+                            <th class="align-middle">Diproses</th>
+                            <th class="align-middle">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,7 +59,11 @@
                         @foreach ($dataDiagnosa as $listDiagnosa)
                             <tr>
                                 <td class="align-middle text-center">{{ $i }}</td>
-                                <td class="align-middle text-center">{{ $listDiagnosa->user->name }}</td>
+                                @php
+                                    $data = json_decode($listDiagnosa->diagnosa, true); // Parsing string JSON ke dalam bentuk array asosiatif
+                                    $namaPenyakit = $data['nama_penyakit'];
+                                @endphp
+                                <td class="align-middle text-center">{{ $namaPenyakit }}</td>
                                 <td class="align-middle text-center">{{ $listDiagnosa->created_at->diffForHumans() }}</td>
                                 <td class="align-middle text-center">
                                     <a href="{{ URL::to('data-riwayat/' . $listDiagnosa->id_diagnosa) }}"
@@ -69,17 +72,7 @@
                                         Lihat Data
                                     </a>
                                 </td>
-                                <td class="align-middle text-center">
-                                    <form action="{{ URL::to('data-riwayat/' . $listDiagnosa->id_diagnosa) }}"
-                                        method="POST" class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">
-                                            <i class="fas fa-trash"></i>
-                                            Hapus
-                                        </button>
-                                    </form>
-                                </td>
+
                             </tr>
                             @php
                                 $i++;

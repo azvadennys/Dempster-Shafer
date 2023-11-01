@@ -13,6 +13,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        if (auth()->user()->role == 'user') {
+            return redirect()->to('/');
+        }
         $datas = [
             'titlePage' => 'Dashboard',
             'navLink' => 'dashboard',

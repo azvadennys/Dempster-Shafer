@@ -25,11 +25,10 @@ class DiagnosaController extends Controller
     public function showdata($data_diagnosa)
     {
         $dataDiagnosa = Diagnosa::find($data_diagnosa)->toArray();
-
         $dataTampilan = [
             'titlePage' => 'Hasil Diagnosa',
             'navLink' => 'diagnosa',
-            'namaPemilik' => $dataDiagnosa['nama_pemilik'],
+            'namaPemilik' => $dataDiagnosa['user']['name'],
             'diagnosa' => json_decode($dataDiagnosa['diagnosa']),
             'solusi' => json_decode($dataDiagnosa['solusi'])
         ];
@@ -39,9 +38,9 @@ class DiagnosaController extends Controller
 
     public function kalkulator(Request $request)
     {
-        $validateReq = $request->validate([
-            'nama_pemilik' => 'required',
-        ]);
+        if (auth()->user() == False) {
+            return redirect()->to('/')->with('error', 'Login Diperlukan Untuk Diagnosa');
+        }
 
         $arrHasilUser = $request->input('resultGejala');
 
@@ -83,7 +82,7 @@ class DiagnosaController extends Controller
             ];
 
             $diagnosa = new Diagnosa();
-            $diagnosa->nama_pemilik = $validateReq['nama_pemilik'];
+            $diagnosa->id_user = auth()->user()->id;
             $diagnosa->diagnosa = json_encode($diagnosaSavedData);
             $diagnosa->solusi = json_encode($variabelTampilan['Solusi_Penyakit']);
             $diagnosa->save();

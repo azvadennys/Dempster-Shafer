@@ -15,7 +15,8 @@ class CreateTabelDiagnosa extends Migration
     {
         Schema::create('tabel_diagnosa', function (Blueprint $table) {
             $table->id('id_diagnosa');
-            $table->string('nama_pemilik');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->cascadeOnUpdate();
             $table->longText('diagnosa');
             $table->longText('solusi');
             $table->timestamps();

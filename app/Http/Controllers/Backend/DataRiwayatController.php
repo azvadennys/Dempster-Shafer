@@ -11,13 +11,24 @@ class DataRiwayatController extends Controller
 {
     public function index()
     {
-        $datas = [
-            'titlePage' => 'Data Riwayat',
-            'navLink' => 'data-riwayat',
-            'dataDiagnosa' => Diagnosa::all()
-        ];
 
-        return view('Backend.pages.data-riwayat.index', $datas);
+        if (auth()->user()->role == 'admin') {
+            $datas = [
+                'titlePage' => 'Data Riwayat',
+                'navLink' => 'data-riwayat',
+                'dataDiagnosa' => Diagnosa::orderby('created_at', 'desc')->get()
+            ];
+
+            return view('Backend.pages.data-riwayat.index', $datas);
+        } else {
+            $datas = [
+                'titlePage' => 'Data Riwayat',
+                'navLink' => 'data-riwayat',
+                'dataDiagnosa' => Diagnosa::where('id_user', auth()->user()->id)->orderby('created_at', 'desc')->get()
+            ];
+            // dd( $datas);
+            return view('Frontend.pages.data-riwayat.index', $datas);
+        }
     }
 
     public function showdata($id_diagnosa)
@@ -27,12 +38,16 @@ class DataRiwayatController extends Controller
         $dataTampilan = [
             'titlePage' => 'Hasil Diagnosa',
             'navLink' => 'diagnosa',
-            'namaPemilik' => $dataDiagnosa['nama_pemilik'],
+            'namaPemilik' => $dataDiagnosa['user']['name'],
             'diagnosa' => json_decode($dataDiagnosa['diagnosa']),
             'solusi' => json_decode($dataDiagnosa['solusi'])
         ];
 
-        return view('Backend.pages.data-riwayat.hasil', $dataTampilan);
+        if (auth()->user()->role == 'admin') {
+            return view('Backend.pages.data-riwayat.hasil', $dataTampilan);
+        } else {
+            return view('Frontend.pages.data-riwayat.hasil', $dataTampilan);
+        }
     }
 
     public function destroy($id_diagnosa)

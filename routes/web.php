@@ -22,23 +22,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('guest')->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('login');
-    Route::get('diagnosa', [DiagnosaController::class, 'index']);
-    Route::post('diagnosa', [DiagnosaController::class, 'kalkulator']);
-    Route::get('diagnosa/{data_diagnosa}', [DiagnosaController::class, 'showdata']);
-    Route::get('pedoman', [PedomanController::class, 'index']);
-    Route::get('login', [LoginController::class, 'index']);
-    Route::post('login', [LoginController::class, 'authenticate']);
+// Route::middleware('guest')->group(function () {
+Route::get('/', [HomeController::class, 'index'])->name('login');
+Route::get('diagnosa', [DiagnosaController::class, 'index']);
+Route::get('diagnosa/{data_diagnosa}', [DiagnosaController::class, 'showdata']);
+Route::get('pedoman', [PedomanController::class, 'index']);
+Route::get('login', [LoginController::class, 'index']);
+Route::get('registrasi', [LoginController::class, 'registrasi'])->name('registrasi');
+Route::post('registrasi', [LoginController::class, 'prosesregistrasi'])->name('registrasi.proses');;
+Route::post('login', [LoginController::class, 'authenticate']);
+Route::post('diagnosa', [DiagnosaController::class, 'kalkulator']);
+// });
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('logout', [LoginController::class, 'logout']);
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('data-riwayat', [DataRiwayatController::class, 'index'])->name('data.riwayat');
+    Route::get('data-riwayat/{id_diagnosa}', [DataRiwayatController::class, 'showdata']);
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index']);
+Route::middleware(['auth', 'role:admin'])->group(function () {
+
+    Route::delete('data-riwayat/{id_diagnosa}', [DataRiwayatController::class, 'destroy']);
     Route::resource('data-penyakit', DataPenyakitController::class)->except('show');
     Route::resource('data-gejala', DataGejalaController::class)->except('show');
     Route::resource('data-basis-pengetahuan', DataBasisPengetahuanController::class)->except('show');
-    Route::get('data-riwayat', [DataRiwayatController::class, 'index']);
-    Route::get('data-riwayat/{id_diagnosa}', [DataRiwayatController::class, 'showdata']);
-    Route::delete('data-riwayat/{id_diagnosa}', [DataRiwayatController::class, 'destroy']);
-    Route::post('logout', [LoginController::class, 'logout']);
 });
