@@ -37,18 +37,49 @@
                                     d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                             </symbol>
                         </svg>
-                        <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+                        <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center"
+                            role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
+                                aria-label="Danger:">
                                 <use xlink:href="#exclamation-triangle-fill" />
                             </svg>
                             <div>
                                 {{ session('error') }}
                             </div>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-                    <table class="table table-bordered custom-table" style="width: 100%">
+                    <div class="container mb-3">
+                        <div class="card kartu-custom">
+                            <div class="card-header text-white fw-bold">
+                                <h5 class="card-title">Pilih Gejala</h5>
+                            </div>
+                            <div class="row justify-content-center">
+                                @foreach ($dataGejala as $gejala)
+                                    <div class="col-sm-12 col-md-6 col-lg-4 ">
+                                        <div class="card-body px-4">
+                                            <input type="checkbox" class="form-check-input" name="resultGejala[]"
+                                                id="checkbox{{ $gejala['kode_gejala'] }}"
+                                                value="{{ $gejala['kode_gejala'] }}"
+                                                @if (is_array(old('resultGejala')) && in_array($gejala['kode_gejala'], old('resultGejala'))) checked @endif>
+                                            <label for="checkbox{{ $gejala['kode_gejala'] }}"
+                                                class="text-dark"><bold>{{ $gejala['kode_gejala']}}</bold> - {{$gejala['gejala'] }}</label>
+                                            <div id="content ">
+                                                @if (strpos($gejala['media'], $gejala['kode_gejala']) !== false)
+                                                    <img src="{{ asset('gejala/' . $gejala['media']) }}" alt="Image"
+                                                        width="315">
+                                                @else
+                                                    <iframe width="315" src="{{ $gejala['media'] }}" frameborder="0"
+                                                        allowfullscreen></iframe>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <table class="table table-bordered custom-table" style="width: 100%">
                         <colgroup>
                             <col span="1" style="width: 3%;">
                             <col span="1" style="width: 12%;">
@@ -84,7 +115,7 @@
                                 @endphp
                             @endforeach
                         </tbody>
-                    </table>
+                    </table> --}}
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button class="btn btn-custom-2 fw-bold" type="submit"><i class="fa-solid fa-floppy-disk me-1"></i>
                             Proses Data
