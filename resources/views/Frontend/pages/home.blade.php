@@ -15,8 +15,10 @@
                     necessitatibus sunt consequuntur doloribus id iusto. Ipsa, quia? Voluptatibus consequuntur fugiat iure
                     sit libero repellat expedita laboriosam.
                 </p>
-                <a href="{{ URL::to('diagnosa') }}" class="btn btn-custom"><i class="fas fa-play-circle me-1"></i> Mulai
-                    Konsultasi</a>
+                @auth
+                    <a href="{{ URL::to('diagnosa') }}" class="btn btn-custom"><i class="fas fa-play-circle me-1"></i> Mulai
+                        Konsultasi</a>
+                @endauth
             </div>
         </div>
         <div class="col-sm-6 my-lg-5 px-lg-5">
@@ -86,9 +88,9 @@
                     </div>
                 @endguest
                 @auth
-                <div class="card-body">
-                    <h4 class="card-title text-center text-custom mb-4">Anda Telah Login</h4>
-                   
+                    <div class="card-body">
+                        <h4 class="card-title text-center text-custom mb-4">Anda Telah Login</h4>
+
                         <div class="d-grid gap-2">
 
                             <a class="btn btn-custom-2 fw-bold" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -97,8 +99,8 @@
                             </a>
 
                         </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
                 @endauth
             </div>
         </div>
