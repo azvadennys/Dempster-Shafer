@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Gejala;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class DataGejalaController extends Controller
 {
@@ -47,16 +50,54 @@ class DataGejalaController extends Controller
      */
     public function store(Gejala $gejala, Request $request)
     {
-        $validateReq = $request->validate([
+        // dd($request);
+
+        $request->validate([
             'kode_gejala' => 'required|unique:tabel_data_gejala',
             'gejala' => 'required',
             'nilai_densitas' => 'required'
         ]);
 
-        $gejala->kode_gejala = $validateReq['kode_gejala'];
-        $gejala->gejala = $validateReq['gejala'];
-        $gejala->nilai_densitas = $validateReq['nilai_densitas'];
-        $gejala->save();
+        if ($request->jenis_media == 'youtube') {
+            $request->validate([
+                'youtube' => 'required'
+            ]);
+            $insertedData = [
+                'kode_gejala' => $request->kode_gejala,
+                'gejala' => $request->gejala,
+                'nilai_densitas' => $request->nilai_densitas,
+                'media' => 'https://www.youtube.com/embed/' . $request->youtube,
+                'created_at' => Carbon::now(),
+            ];
+        } else {
+            $request->validate([
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif'
+            ]);
+            $file = $request->file('gambar');
+            // dd($file);
+            $namaFileBaru = $request->kode_gejala . '.' . $file->getClientOriginalExtension();
+            $uploadDir = 'gejala/';
+            $uploadPath = $uploadDir . $namaFileBaru;
+
+            if (file_exists($uploadPath)) {
+                unlink($uploadPath); // Menghapus file duplikat
+            }
+
+
+            move_uploaded_file($file, $uploadPath);
+
+            $insertedData = [
+                'kode_gejala' => $request->kode_gejala,
+                'gejala' => $request->gejala,
+                'nilai_densitas' => $request->nilai_densitas,
+                'media' => $namaFileBaru,
+                'created_at' => Carbon::now(),
+            ];
+        }
+
+
+
+        DB::table('tabel_data_gejala')->insert($insertedData);
 
         return redirect()->to('data-gejala')->with('success', 'Data Gejala berhasil ditambahkan');
     }
@@ -104,7 +145,7 @@ class DataGejalaController extends Controller
         $dataGejala = $gejala->find($data_gejala);
 
         $validateReq = $request->validate([
-            'kode_gejala' => 'required',
+            'kode_gejala' => 'required|unique:tabel_data_gejala',
             'gejala' => 'required',
             'nilai_densitas' => 'required'
         ]);

@@ -18,7 +18,9 @@ class CreateTabelBasisPengetahuan extends Migration
         Schema::create('tabel_basis_pengetahuan', function (Blueprint $table) {
             $table->id('id_basis_pengetahuan');
             $table->string('kode_penyakit');
+            $table->foreign('kode_penyakit')->references('kode_penyakit')->on('tabel_data_penyakit')->onDelete('cascade')->cascadeOnUpdate();
             $table->string('kode_gejala');
+            $table->foreign('kode_gejala')->references('kode_gejala')->on('tabel_data_gejala')->onDelete('cascade')->cascadeOnUpdate();
             $table->timestamps();
         });
 
