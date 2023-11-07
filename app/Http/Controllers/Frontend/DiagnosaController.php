@@ -113,9 +113,11 @@ class DiagnosaController extends Controller
         }
 
         $indexMaxValue = array_search(max($arrResult), $arrResult);
-        $nilaiBelief = round($result['data'][$indexMaxValue]['value'], 2);
-        $persentase = (round($result['data'][$indexMaxValue]['value'], 2) * 100) . " %";
-
+        $nilaiBelief = round($result['data'][$indexMaxValue]['value'], 3);
+        // $nilaiBelief = $result['data'][$indexMaxValue]['value'];
+        $persentase = (round($result['data'][$indexMaxValue]['value'], 3) * 100) . " %";
+        // $persentase = ($result['data'][$indexMaxValue]['value'] * 100) . " %";
+        // dd($persentase);
         $kodePenyakit = $result['data'][$indexMaxValue]['array'][0];
         $dataPenyakit = Penyakit::where('kode_penyakit', $kodePenyakit)
             ->select('nama_penyakit')

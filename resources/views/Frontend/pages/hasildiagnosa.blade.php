@@ -26,6 +26,8 @@
 
                 <div class="container-fluid">
                     <h6 class="text-custom">*) Gejala yang dialami</h6>
+                <button class="btn btn-primary">Gejela Diinput </button>
+                <button class="btn btn-primary">Gejala Penyakit Terdiagnosa </button>
                     <table class="table table-bordered custom-table" style="width: 100%">
                         <colgroup>
                             <col span="1" style="width: 3%;">

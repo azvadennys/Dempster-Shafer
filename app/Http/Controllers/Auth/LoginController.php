@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    
+
     public function registrasi()
     {
         $datas = [
@@ -37,7 +37,7 @@ class LoginController extends Controller
         ];
 
         DB::table('users')->insert($insertedData);
-     
+
 
         return back()->with('success', 'Registrasi Berhasil');
     }
@@ -51,7 +51,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            return redirect()->back();
         }
 
         return back()->with('error', 'Username atau Password salah');
