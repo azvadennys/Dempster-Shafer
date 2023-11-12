@@ -26,37 +26,74 @@
 
                 <div class="container-fluid">
                     <h6 class="text-custom">*) Gejala yang dialami</h6>
-                <button class="btn btn-primary">Gejela Diinput </button>
-                <button class="btn btn-primary">Gejala Penyakit Terdiagnosa </button>
-                    <table class="table table-bordered custom-table" style="width: 100%">
-                        <colgroup>
-                            <col span="1" style="width: 3%;">
-                            <col span="1" style="width: 12%;">
-                            <col span="1" style="width: 85%;">
-                        </colgroup>
-                        <thead>
-                            <tr class="text-center">
-                                <th>No.</th>
-                                <th>Kode Gejala.</th>
-                                <th>Nama Gejala.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $i = 1;
-                            @endphp
-                            @foreach ($diagnosa->gejala_penyakit as $gejalaYangDipilih)
-                                <tr>
-                                    <td class="text-center">{{ $i }}</td>
-                                    <td class="text-center">{{ $gejalaYangDipilih->kode_gejala }}</td>
-                                    <td>{{ $gejalaYangDipilih->nama_gejala }}</td>
+                    <button class="btn btn-custom-2 my-2" id="btn_diinput">Gejela Diinput </button>
+                    <button class="btn btn-custom-2 my-2" id="btn_terdiagnosa">Gejala Penyakit Terdiagnosa </button>
+
+                    <div id="diinput">
+                        <h6 class="text-custom mx-3 ">Gejala Diinput</h6>
+                        <table class="table table-bordered custom-table" style="width: 100%">
+                            <colgroup>
+                                <col span="1" style="width: 3%;">
+                                <col span="1" style="width: 12%;">
+                                <col span="1" style="width: 85%;">
+                            </colgroup>
+                            <thead>
+                                <tr class="text-center">
+                                    <th>No.</th>
+                                    <th>Kode Gejala</th>
+                                    <th>Nama Gejala</th>
                                 </tr>
+                            </thead>
+                            <tbody>
                                 @php
-                                    $i++;
+                                    $i = 1;
                                 @endphp
-                            @endforeach
-                        </tbody>
-                    </table>
+                                @foreach ($diagnosa->gejala_penyakit as $gejalaYangDipilih)
+                                    <tr>
+                                        <td class="text-center">{{ $i }}</td>
+                                        <td class="text-center">{{ $gejalaYangDipilih->kode_gejala }}</td>
+                                        <td>{{ $gejalaYangDipilih->nama_gejala }}</td>
+                                    </tr>
+                                    @php
+                                        $i++;
+                                    @endphp
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="terdiagnosa" style="display: none;">
+                        <h6 class="text-custom mx-3 ">Gejala Penyakit Terdiagnosa</h6>
+                        <table class="table table-bordered custom-table" style="width: 100%">
+                            <colgroup>
+                                <col span="1" style="width: 3%;">
+                                <col span="1" style="width: 12%;">
+                                <col span="1" style="width: 85%;">
+                            </colgroup>
+                            <thead>
+                                <tr class="text-center">
+                                    <th>No.</th>
+                                    <th>Kode Gejala</th>
+                                    <th>Nama Gejala</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $i = 1;
+                                @endphp
+                                @foreach ($gejalaSebenarnya as $index)
+                                    <tr>
+                                        <td class="text-center">{{ $i }}</td>
+                                        <td class="text-center">{{ $index->gejala->kode_gejala }}</td>
+                                        <td>{{ $index->gejala->gejala }}</td>
+                                    </tr>
+                                    @php
+                                        $i++;
+                                    @endphp
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
 
                 <div class="container-fluid">
@@ -101,3 +138,22 @@
             Halaman Diagnosa</a>
     </div>
 @endsection
+
+@push('custome_js')
+    <script>
+        $(document).ready(function() {
+            var btn_terdiagnosa = document.getElementById('btn_terdiagnosa');
+            var btn_diinput = document.getElementById('btn_diinput');
+            var terdiagnosa = document.getElementById('terdiagnosa');
+            var diinput = document.getElementById('diinput');
+            btn_diinput.addEventListener('click', function() {
+                terdiagnosa.style.display = 'none';
+                diinput.style.display = 'block';
+            });
+            btn_terdiagnosa.addEventListener('click', function() {
+                terdiagnosa.style.display = 'block';
+                diinput.style.display = 'none';
+            });
+        });
+    </script>
+@endpush

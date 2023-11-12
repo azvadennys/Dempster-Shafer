@@ -20,6 +20,7 @@ class CreateTabelDataGejala extends Migration
             $table->string('kode_gejala')->unique();
             $table->string('gejala');
             $table->string('media');
+            $table->string('kategori',40);
             $table->double('nilai_densitas');
             $table->timestamps();
         });
@@ -31,6 +32,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Tampak sayu/lesu',
                     'nilai_densitas' => 0.5,
                     'media' => 'G1.jpg',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -39,6 +41,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Ataksia (gangguan gerak tubuh)',
                     'nilai_densitas' => 0.92,
                     'media' => 'https://www.youtube.com/embed/PbOr8BXy1d0?si=P9e72AxwHlDOO4pW',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -47,6 +50,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Jatuh kesamping dengan kaki terjulur',
                     'nilai_densitas' => 0.85,
                     'media' => 'https://www.youtube.com/embed/0_2qPi6gge0?si=PF9jpcouEyCOtf11',
+                    'kategori' => 'KONDISI BADAN',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -55,6 +59,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Tremor kepala dan leher',
                     'nilai_densitas' => 0.9,
                     'media' => 'https://www.youtube.com/embed/wvRLpNypSKw?si=q3GXSl4bltxOlf8o',
+                    'kategori' => 'KONDISI KEPALA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -63,6 +68,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Lumpuh ',
                     'nilai_densitas' => 0.5,
                     'media' => 'https://www.youtube.com/embed/ye0BBZcCrEQ?si=sy_w89o3TynEk3Nx',
+                    'kategori' => 'KONDISI KAKI',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -71,6 +77,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Bagian tubuh yang tidak ditumbuhi bulu berwarna biru keunguan (jengger, pial, kelopak mata, kaki, perut)',
                     'nilai_densitas' => 0.9,
                     'media' => 'G6.jpg',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -79,6 +86,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Pendarahan pada kaki berupa bintik merah (Ptekhie)',
                     'nilai_densitas' => 0.95,
                     'media' => 'G7.jpg',
+                    'kategori' => 'KONDISI KAKI',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -87,6 +95,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Keluar cairan dari mata dan hidung',
                     'nilai_densitas' => 0.5,
                     'media' => 'G8.jpg',
+                    'kategori' => 'KONDISI MATA DAN HIDUNG',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -95,6 +104,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Pembengkakan pada muka dan kepala',
                     'nilai_densitas' => 0.8,
                     'media' => 'G9.jpg',
+                    'kategori' => 'KONDISI KEPALA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -103,6 +113,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Diare ',
                     'nilai_densitas' => 0.5,
                     'media' => 'https://www.youtube.com/embed/a94IRwNpt68?si=jG7u94gD28PVp64C',
+                    'kategori' => 'KONDISI FESES',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -111,6 +122,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Batuk ',
                     'nilai_densitas' => 0.5,
                     'media' => 'https://www.youtube.com/embed/vnqskRS36is?si=43TIyualhTmAAepa',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -119,6 +131,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Bersin dan ngorok',
                     'nilai_densitas' => 0.5,
                     'media' => 'https://www.youtube.com/embed/zdzzSu1TUOM?si=xubsfe94nhyrqIHQ',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -127,6 +140,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Nafsu makan menurun',
                     'nilai_densitas' => 0.5,
                     'media' => 'https://www.youtube.com/embed/rK4WBSb65l0?si=qJZ6oQZVBlFOZALN',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -135,6 +149,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Gangguan syaraf',
                     'nilai_densitas' => 0.6,
                     'media' => 'https://www.youtube.com/embed/CB5zC-0Zhms?si=MYr1jmEXuSDvHJp_',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -143,6 +158,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Tortikolis (leher miring)',
                     'nilai_densitas' => 0.85,
                     'media' => 'https://www.youtube.com/embed/T5A7SRpWtPM?si=NubzT9nXMpz1CP2q',
+                    'kategori' => 'KONDISI LEHER',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -151,6 +167,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Gemetar',
                     'nilai_densitas' => 0.5,
                     'media' => 'https://www.youtube.com/embed/X6k_2uy0P8E?si=LZK9mSccDTChKFfr',
+                    'kategori' => 'KONDISI BADAN',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -159,6 +176,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Timbul lesi',
                     'nilai_densitas' => 0.6,
                     'media' => 'G17.jpg',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -167,6 +185,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Gangguan pernapasan',
                     'nilai_densitas' => 0.7,
                     'media' => 'https://www.youtube.com/embed/ptbkLeTnYno?si=nxe3zS1OtGLQkrOI',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -175,6 +194,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Terdapat nodul (benjolan) | Pada Kulit',
                     'nilai_densitas' => 0.8,
                     'media' => 'G19.jpg',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -183,6 +203,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Pertumbuhan terhambat (gangguan pertumbuhan)',
                     'nilai_densitas' => 0.5,
                     'media' => 'G20.jpg',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -191,6 +212,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Anoreksia (gangguan makan)',
                     'nilai_densitas' => 0.55,
                     'media' => 'https://www.youtube.com/embed/coFXB6Z8aBk?si=tSx_c05VmTbb28VH',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -199,6 +221,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Kelainan bulu, patah tungkai bulu sayap primer',
                     'nilai_densitas' => 0.91,
                     'media' => 'G22.jpg',
+                    'kategori' => 'KONDISI BULU',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -207,6 +230,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Bulu bagian kepala berwarna kuning sampai umur 30 hari',
                     'nilai_densitas' => 0.7,
                     'media' => 'G23.jpg',
+                    'kategori' => 'KONDISI BULU',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -215,6 +239,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Bulu seperti baling-baling',
                     'nilai_densitas' => 0.9,
                     'media' => 'G24.jpg',
+                    'kategori' => 'KONDISI BULU',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -223,6 +248,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Bobot hanya 250 gr/kurang dari separuh ukuran normal',
                     'nilai_densitas' => 0.7,
                     'media' => 'G25.jpg',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -231,6 +257,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Kotoran kuning, lembek, tidak tercerna sempurna',
                     'nilai_densitas' => 0.6,
                     'media' => 'G26.jpg',
+                    'kategori' => 'KONDISI FESES',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -239,6 +266,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Sindroma kekerdilan/ kelainan',
                     'nilai_densitas' => 0.5,
                     'media' => 'G27.jpg',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -247,6 +275,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Mati setelah beberapa jam terserang virus',
                     'nilai_densitas' => 0.6,
                     'media' => 'G28.jpg',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -255,6 +284,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Keluar leleran hidung',
                     'nilai_densitas' => 0.5,
                     'media' => 'G29.jpg',
+                    'kategori' => 'KONDISI MATA DAN HIDUNG',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -263,6 +293,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Eksudat berbuih di mata',
                     'nilai_densitas' => 0.8,
                     'media' => 'G30.jpg',
+                    'kategori' => 'KONDISI MATA DAN HIDUNG',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -271,6 +302,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Anak ayam tampak tertekan dan akan cenderung meringkuk di dekat panas',
                     'nilai_densitas' => 0.5,
                     'media' => 'https://www.youtube.com/embed/aQyAx8VcZWU?si=PJwow4y-yWbdELio',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -279,6 +311,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Depresi ',
                     'nilai_densitas' => 0.6,
                     'media' => 'https://www.youtube.com/embed/fmfldQ7-kvo?si=fnncPzoYB2fybpDc',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -287,6 +320,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Lemah ',
                     'nilai_densitas' => 0.5,
                     'media' => 'G33.jpg',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -295,6 +329,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Bulu berdiri dan kotor terutama di perut dan dubur',
                     'nilai_densitas' => 0.7,
                     'media' => 'G34.jpg',
+                    'kategori' => 'KONDISI BULU',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -303,6 +338,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Feses berwarna putih kapur dan kematian dehidrasi',
                     'nilai_densitas' => 0.6,
                     'media' => 'G35.jpg',
+                    'kategori' => 'KONDISI FESES',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -311,6 +347,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Keluar cairan mucus berdarah',
                     'nilai_densitas' => 0.7,
                     'media' => 'https://www.youtube.com/embed/vFn8UjWIcfY?si=JworJGwJTyikT02b',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -319,6 +356,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Conjunctivitis',
                     'nilai_densitas' => 0.5,
                     'media' => 'G37.jpg',
+                    'kategori' => 'KONDISI MATA DAN HIDUNG',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -327,6 +365,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Pembengkakak rongga infra orbital',
                     'nilai_densitas' => 0.7,
                     'media' => 'G38.jpg',
+                    'kategori' => 'KONDISI KEPALA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -335,6 +374,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Pial kering',
                     'nilai_densitas' => 0.5,
                     'media' => 'G39.jpg',
+                    'kategori' => 'KONDISI KEPALA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -343,6 +383,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Perut tampak membesar dan bila diraba (palpasi) terasa mengeras',
                     'nilai_densitas' => 0.95,
                     'media' => 'G40.jpg',
+                    'kategori' => 'KONDISI BADAN',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -351,6 +392,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'kurus',
                     'nilai_densitas' => 0.5,
                     'media' => 'G41.jpg',
+                    'kategori' => 'KONDISI BADAN',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -359,6 +401,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Hilangnya keseimbangan tubuh diikuti lumpuh kaki dan sayap',
                     'nilai_densitas' => 0.9,
                     'media' => 'https://www.youtube.com/embed/iie1p7MOOdM?si=sPeOuOiw-0FZNsD1',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -367,6 +410,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Folikel bulu membesar dan merah',
                     'nilai_densitas' => 0.9,
                     'media' => 'G43.jpg',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -375,6 +419,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Ada tumor pada otot dan kulit',
                     'nilai_densitas' => 0.9,
                     'media' => 'G44.jpg',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -383,6 +428,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Keratis dan kebutaan (iris abu-abu gelap)',
                     'nilai_densitas' => 0.75,
                     'media' => 'https://www.youtube.com/embed/lcnaDzKo5wc?si=65XMd0Dqen4NWKFk',
+                    'kategori' => 'KONDISI MATA DAN HIDUNG',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -391,6 +437,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Pembesaran hati',
                     'nilai_densitas' => 0.5,
                     'media' => 'G46.jpg',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -399,6 +446,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Diare berdarah',
                     'nilai_densitas' => 0.6,
                     'media' => 'https://www.youtube.com/embed/aPjym2p4kLE?si=AqEMbmQdcvCVXsuk',
+                    'kategori' => 'KONDISI FESES',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -407,6 +455,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Sesak napas dan megap-megap',
                     'nilai_densitas' => 0.75,
                     'media' => 'https://www.youtube.com/embed/nUCqjir-zUk?si=4ZIU05FlKtFcZpyy',
+                    'kategori' => 'LAINNYA',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -415,6 +464,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Paralysis partialis atau komplit',
                     'nilai_densitas' => 0.5,
                     'media' => 'https://www.youtube.com/embed/DLvXEFscACs?si=od04diig_ftR6JtS',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -423,6 +473,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Balung dan pial cyanosis (membiru)',
                     'nilai_densitas' => 0.5,
                     'media' => 'G50.jpg',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -431,6 +482,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Opisthotonus (tubuh kaku)',
                     'nilai_densitas' => 0.8,
                     'media' => 'https://www.youtube.com/embed/yhLPJDECpiU?si=H2ES3IQU2Maj3qxF',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -439,6 +491,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Inkoordinasi tubuh',
                     'nilai_densitas' => 0.9,
                     'media' => 'https://www.youtube.com/embed/SCAufni9wxw?si=3GAzd_tPVGo_Wbib',
+                    'kategori' => 'KONDISI FISIK',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -447,6 +500,7 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Pincang',
                     'nilai_densitas' => 0.5,
                     'media' => 'https://www.youtube.com/embed/zQFmh_DaPLA?si=8V-mc2H-8hHd4a-d',
+                    'kategori' => 'KONDISI KAKI',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
@@ -455,9 +509,11 @@ class CreateTabelDataGejala extends Migration
                     'gejala' => 'Pembengkakan tendon/sendi',
                     'nilai_densitas' => 0.95,
                     'media' => 'https://www.youtube.com/embed/a7WkEGKpJ-c?si=AFkBRAoERG-VXFk1',
+                    'kategori' => 'KONDISI KAKI',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
+
 
 
             ];

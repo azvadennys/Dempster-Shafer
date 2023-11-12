@@ -28,12 +28,22 @@ class CreateUsersTable extends Migration
         });
 
         $insertedData = [
-            'name' => 'Administrator',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin'),
-            'role' => 'admin',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            [
+                'name' => 'Administrator',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('admin'),
+                'role' => 'admin',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'name' => 'Azvadennys Vasiguhamiaz',
+                'email' => 'azvadenis@gmail.com',
+                'password' => Hash::make('123'),
+                'role' => 'user',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
         ];
 
         DB::table('users')->insert($insertedData);

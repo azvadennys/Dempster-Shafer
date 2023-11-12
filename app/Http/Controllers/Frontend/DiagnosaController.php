@@ -25,11 +25,17 @@ class DiagnosaController extends Controller
     public function showdata($data_diagnosa)
     {
         $dataDiagnosa = Diagnosa::find($data_diagnosa)->toArray();
+        $diagnosa = json_decode($dataDiagnosa['diagnosa']);
+        $kode_penyakit = strstr($diagnosa->nama_penyakit, ' -', true);
+        $penyakit = BasisPengetahuan::with('gejala')->where('kode_penyakit', $kode_penyakit)->get();
+        // dd($penyakit);
+
         $dataTampilan = [
             'titlePage' => 'Hasil Diagnosa',
             'navLink' => 'diagnosa',
+            'gejalaSebenarnya' => $penyakit,
             'namaPemilik' => $dataDiagnosa['user']['name'],
-            'diagnosa' => json_decode($dataDiagnosa['diagnosa']),
+            'diagnosa' => $diagnosa,
             'solusi' => json_decode($dataDiagnosa['solusi'])
         ];
 
