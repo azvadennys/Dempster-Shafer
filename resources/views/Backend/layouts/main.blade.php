@@ -129,6 +129,7 @@
             });
         });
     </script>
+      @stack('custome_js')
     <script src="{{ URL::to('bin/js/datapenyakit.js') }}"></script>
 
 </body>

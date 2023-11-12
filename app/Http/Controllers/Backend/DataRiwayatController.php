@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\BasisPengetahuan;
 use App\Models\Diagnosa;
 use App\Models\Hasil;
 use Illuminate\Http\Request;
@@ -34,10 +35,14 @@ class DataRiwayatController extends Controller
     public function showdata($id_diagnosa)
     {
         $dataDiagnosa = Diagnosa::find($id_diagnosa)->toArray();
+        $diagnosa = json_decode($dataDiagnosa['diagnosa']);
+        $kode_penyakit = strstr($diagnosa->nama_penyakit, ' -', true);
+        $penyakit = BasisPengetahuan::with('gejala')->where('kode_penyakit', $kode_penyakit)->get();
 
         $dataTampilan = [
             'titlePage' => 'Hasil Diagnosa',
             'navLink' => 'diagnosa',
+            'gejalaSebenarnya' => $penyakit,
             'namaPemilik' => $dataDiagnosa['user']['name'],
             'diagnosa' => json_decode($dataDiagnosa['diagnosa']),
             'solusi' => json_decode($dataDiagnosa['solusi'])

@@ -66,7 +66,7 @@
                                 <td class="align-middle text-center">{{ $namaPenyakit }}</td>
                                 <td class="align-middle text-center">{{ $listDiagnosa->created_at->diffForHumans() }}</td>
                                 <td class="align-middle text-center">
-                                    <a href="{{ URL::to('data-riwayat/' . $listDiagnosa->id_diagnosa) }}"
+                                    <a href="{{ URL::to('diagnosa/' . $listDiagnosa->id_diagnosa) }}"
                                         class="btn btn-custom-2">
                                         <i class="fas fa-eye me-1"></i>
                                         Lihat Data
