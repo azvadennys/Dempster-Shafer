@@ -268,10 +268,10 @@
                                                             <div class="card-body px-4">
                                                                 <div id="content " style="overflow: hidden" height="175">
                                                                     @if (strpos($gejala['media'], $gejala['kode_gejala']) !== false)
-                                                                        <img src="{{ asset('gejala/' . $gejala['media']) }}"
+                                                                        <img src="{{ asset('gejala/' . $gejala['media']) }}" class="rounded border border-dark" 
                                                                             alt="Image" height="175">
                                                                     @else
-                                                                        <iframe height="175" src="{{ $gejala['media'] }}"
+                                                                        <iframe height="175" src="{{ $gejala['media'] }}" class="rounded border border-dark"
                                                                             frameborder="1" allowfullscreen></iframe>
                                                                     @endif
                                                                 </div>
