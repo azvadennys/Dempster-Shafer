@@ -16,9 +16,10 @@ class DiagnosaController extends Controller
         $datas = [
             'titlePage' => 'Diagnosa',
             'navLink' => 'diagnosa',
-            'dataGejala' => Gejala::all()
+            'dataGejala' => Gejala::all(),
+            'gejala' => Gejala::orderBy('kategori', 'asc')->get()->groupBy('kategori'),
         ];
-
+        // dd(Gejala::orderBy('kategori', 'asc')->get()->groupBy('kategori'));
         return view('Frontend.pages.diagnosa', $datas);
     }
 

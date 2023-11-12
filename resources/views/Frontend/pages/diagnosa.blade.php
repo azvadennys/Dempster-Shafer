@@ -180,10 +180,15 @@
                     </div>
                 </div>
             </div>
+
             <div class="card kartu-custom" id="konsultasi_form" style="display : none;">
                 <div class="card-header text-white fw-bold">
                     Konsultasi Gejala
                 </div>
+                @php
+                    $isFirstProduct = true;
+                @endphp
+                
                 <div class="card-body">
                     <form action="{{ URL::to('diagnosa') }}" method="post">
                         @csrf
@@ -233,27 +238,60 @@
                                 <h5 class="card-title">Pilih Gejala</h5>
                             </div> --}}
                         <div class="row justify-content-center">
-                            @foreach ($dataGejala as $gejala)
-                                <div class="col-sm-12 col-md-6 col-lg-4 ">
-                                    <div class="card-body px-4">
-                                        <div id="content " style="overflow: hidden" height="175">
-                                            @if (strpos($gejala['media'], $gejala['kode_gejala']) !== false)
-                                                <img src="{{ asset('gejala/' . $gejala['media']) }}" alt="Image"
-                                                    height="175">
-                                            @else
-                                                <iframe height="175" src="{{ $gejala['media'] }}" frameborder="1"
-                                                    allowfullscreen></iframe>
-                                            @endif
+                            <div id="accordion">
+                                @foreach ($gejala as $category => $index)
+                                    <div class="card">
+                                        <div class="card-header" id="heading-{{ preg_replace('/\s+/', '_', $category) }}"
+                                            data-toggle="collapse" data-target="#collapse-{{ preg_replace('/\s+/', '_', $category) }}"
+                                            aria-expanded="true" aria-controls="collapse-{{ preg_replace('/\s+/', '_', $category) }}">
+                                            <h5 class="mb-0">
+                                                <a class="btn btn-custom-2" data-toggle="collapse"
+                                                    data-target="#collapse-{{ preg_replace('/\s+/', '_', $category) }}"
+                                                    aria-expanded="true"
+                                                    aria-controls="collapse-{{ preg_replace('/\s+/', '_', $category) }}">
+                                                    {{ $category }}
+                                            </a>
+                                            </h5>
                                         </div>
-                                        <input type="checkbox" class="form-check-input" name="resultGejala[]"
-                                            id="checkbox{{ $gejala['kode_gejala'] }}" value="{{ $gejala['kode_gejala'] }}"
-                                            @if (is_array(old('resultGejala')) && in_array($gejala['kode_gejala'], old('resultGejala'))) checked @endif>
-                                        <label for="checkbox{{ $gejala['kode_gejala'] }}" class="text-dark">
-                                            <bold>{{ $gejala['kode_gejala'] }}</bold> - {{ $gejala['gejala'] }}
-                                        </label>
+            
+                                        <div id="collapse-{{ preg_replace('/\s+/', '_', $category) }}"
+                                            class="collapse  @if ($isFirstProduct) show
+                                        @php
+                                            $isFirstProduct = false;
+                                        @endphp @endif"
+                                            aria-labelledby="heading-{{ preg_replace('/\s+/', '_', $category) }}"
+                                            data-parent="#accordion">
+                                            <div class="card-body text-dark">
+                                                <div class="row justify-content-center">
+                                                    @foreach ($index as $gejala)
+                                                        <div class="col-sm-12 col-md-6 col-lg-4 ">
+                                                            <div class="card-body px-4">
+                                                                <div id="content " style="overflow: hidden" height="175">
+                                                                    @if (strpos($gejala['media'], $gejala['kode_gejala']) !== false)
+                                                                        <img src="{{ asset('gejala/' . $gejala['media']) }}"
+                                                                            alt="Image" height="175">
+                                                                    @else
+                                                                        <iframe height="175" src="{{ $gejala['media'] }}"
+                                                                            frameborder="1" allowfullscreen></iframe>
+                                                                    @endif
+                                                                </div>
+                                                                <input type="checkbox" class="form-check-input" name="resultGejala[]"
+                                                                    id="checkbox{{ $gejala['kode_gejala'] }}"
+                                                                    value="{{ $gejala['kode_gejala'] }}"
+                                                                    @if (is_array(old('resultGejala')) && in_array($gejala['kode_gejala'], old('resultGejala'))) checked @endif>
+                                                                <label for="checkbox{{ $gejala['kode_gejala'] }}" class="text-dark">
+                                                                    <bold>{{ $gejala['kode_gejala'] }}</bold> - {{ $gejala['gejala'] }}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                              
+                            </div>
                         </div>
                         {{-- </div> --}}
                         {{-- </div> --}}
@@ -294,7 +332,7 @@
                             @endforeach
                         </tbody>
                     </table> --}}
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="d-grid gap-2 d-md-flex justify-content-center mt-4">
                             <button class="btn btn-custom-2 fw-bold" type="submit"><i
                                     class="fa-solid fa-floppy-disk me-1"></i>
                                 Proses Data
@@ -319,9 +357,6 @@
             var syarat = document.getElementById('syarat');
 
             var proses_pretest = document.getElementById('proses_pretest');
-            var sessionData = localStorage.getItem('error');
-            console.log(sessionData)
-
             @if (session()->has('error'))
                 syarat.style.display = 'none';
                 hiddenDiv.style.display = 'block';
