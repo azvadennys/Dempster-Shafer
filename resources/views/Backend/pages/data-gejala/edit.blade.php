@@ -59,6 +59,25 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
+                        <label for="kategori" class="col-sm-2 col-form-label text-custom">Kategori</label>
+                        <div class="col-sm-5">
+                            <select class="form-select" id="kategori" name="kategori">
+                                <option value="" selected disabled>Pilih Kategori</option>
+                                @foreach ($kategori as $index)
+                                    <option value="{{ $index }}"
+                                        {{ old('kategori', $dataGejala['kategori']) == $index ? 'selected' : '' }}>
+                                        {{ $index }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('kategori')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <button class="btn btn-custom-2 me-md-2" type="submit">
                                 <i class="fas fa-save me-1"></i>

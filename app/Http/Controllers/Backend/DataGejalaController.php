@@ -34,9 +34,13 @@ class DataGejalaController extends Controller
      */
     public function create()
     {
+        $categories = [
+            "KONDISI BADAN", "KONDISI BULU", "KONDISI FESES", "KONDISI FISIK", "KONDISI KAKI", "KONDISI KEPALA", "KONDISI LEHER", "KONDISI MATA DAN HIDUNG", "LAINNYA"
+        ];
         $datas = [
             'titlePage' => 'Data Gejala',
             'navLink' => 'data-gejala',
+            'kategori' => $categories
         ];
 
         return view('Backend.pages.data-gejala.create', $datas);
@@ -55,6 +59,7 @@ class DataGejalaController extends Controller
         $request->validate([
             'kode_gejala' => 'required|unique:tabel_data_gejala',
             'gejala' => 'required',
+            'kategori' => 'required',
             'nilai_densitas' => 'required'
         ]);
 
@@ -66,6 +71,7 @@ class DataGejalaController extends Controller
                 'kode_gejala' => $request->kode_gejala,
                 'gejala' => $request->gejala,
                 'nilai_densitas' => $request->nilai_densitas,
+                'kategori' => $request->kategori,
                 'media' => 'https://www.youtube.com/embed/' . $request->youtube,
                 'created_at' => Carbon::now(),
             ];
@@ -91,6 +97,7 @@ class DataGejalaController extends Controller
                 'gejala' => $request->gejala,
                 'nilai_densitas' => $request->nilai_densitas,
                 'media' => $namaFileBaru,
+                'kategori' => $request->kategori,
                 'created_at' => Carbon::now(),
             ];
         }
@@ -122,12 +129,15 @@ class DataGejalaController extends Controller
     public function edit($data_gejala, Gejala $gejala)
     {
         $dataGejala = $gejala->find($data_gejala)->toArray();
-
+        $categories = [
+            "KONDISI BADAN", "KONDISI BULU", "KONDISI FESES", "KONDISI FISIK", "KONDISI KAKI", "KONDISI KEPALA", "KONDISI LEHER", "KONDISI MATA DAN HIDUNG", "LAINNYA"
+        ];
         $datas = [
             'titlePage' => 'Data Gejala',
             'navLink' => 'data-gejala',
             'idGejala' => $dataGejala['id_gejala'],
-            'dataGejala' => $dataGejala
+            'dataGejala' => $dataGejala,
+            'kategori' => $categories
         ];
 
         return view('Backend.pages.data-gejala.edit', $datas);
@@ -143,16 +153,26 @@ class DataGejalaController extends Controller
     public function update($data_gejala, Request $request, Gejala $gejala)
     {
         $dataGejala = $gejala->find($data_gejala);
+        // dd($dataGejala);
+        if ($dataGejala->kode_gejala != $request->kode_gejala) {
+            $validateReq = $request->validate([
+                'kode_gejala' => 'required|unique:tabel_data_gejala',
+                'gejala' => 'required',
+                'nilai_densitas' => 'required',
+                'kategori' => 'required'
+            ]);
+        } else {
+            $validateReq = $request->validate([
+                'gejala' => 'required',
+                'nilai_densitas' => 'required',
+                'kategori' => 'required'
+            ]);
+        }
 
-        $validateReq = $request->validate([
-            'kode_gejala' => 'required|unique:tabel_data_gejala',
-            'gejala' => 'required',
-            'nilai_densitas' => 'required'
-        ]);
-
-        $dataGejala->kode_gejala = $validateReq['kode_gejala'];
-        $dataGejala->gejala = $validateReq['gejala'];
-        $dataGejala->nilai_densitas = $validateReq['nilai_densitas'];
+        $dataGejala->kode_gejala = $request->kode_gejala;
+        $dataGejala->gejala = $request->gejala;
+        $dataGejala->nilai_densitas = $request->nilai_densitas;
+        $dataGejala->kategori = $request->kategori;
         $dataGejala->save();
 
         return redirect()->to('data-gejala')->with('success', 'Data Gejala berhasil diubah');

@@ -58,6 +58,21 @@
                     </div>
 
                     <div class="mb-3 row">
+                        <label for="kategori" class="col-sm-2 col-form-label text-custom">Kategori</label>
+                        <div class="col-sm-5">
+                            <select class="form-select" id="kategori" name="kategori">
+                                <option value="" selected disabled>Pilih Kategori</option>
+                                @foreach ($kategori as $index)
+                                    <option value="{{ $index }}" {{ old('kategori') == $index ? 'selected' : '' }}>
+                                        {{ $index }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3 row">
                         <label for="jenis_media" class="col-sm-2 col-form-label text-custom">Jenis Media</label>
                         <div class="col-sm-5">
                             <select class="form-select" id="jenis_media" name="jenis_media" id="jenis_media">
@@ -66,16 +81,13 @@
                                 <option value="youtube">Video Youtube</option>
                             </select>
                         </div>
-
-
-
                     </div>
                     <div id="input_gambar" style="display: none">
                         <div class="mb-3 row">
                             <label for="gambar" class="col-sm-2 col-form-label text-custom">Gambar Gejala</label>
                             <div class="col-sm-5">
                                 <input type="file" class="form-control @error('gambar') is-invalid @enderror"
-                                    id="gambar" name="gambar" >
+                                    id="gambar" name="gambar">
 
                                 @error('gambar')
                                     <div class="invalid-feedback">
