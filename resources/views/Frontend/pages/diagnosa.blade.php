@@ -162,7 +162,7 @@
                                 </tr>
                                 <tr>
                                     <td class="text-center">4</td>
-                                    <td class="">Apakah ada kasus kematian yang tidak wajar diantara ternak?</td>
+                                    <td class="">Apakah ada kasus kematian yang tidak wajar diantara ayam?</td>
                                     <td class="text-center">
                                         <input type="checkbox" class="form-check-input"id="pertanyaan4"
                                             name="resultPertanyaan[]" value="4">
