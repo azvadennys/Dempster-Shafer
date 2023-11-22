@@ -135,8 +135,8 @@
                             <tbody>
                                 <tr>
                                     <td class="text-center">1</td>
-                                    <td class="">Apakah ternak mengalami penurunan produksi secara tiba- tiba,
-                                        seperti penurunan pertambahan bobot pada hewan ternak?
+                                    <td class="">Apakah ayam mengalami penurunan produksi secara tiba- tiba,
+                                        seperti penurunan pertambahan bobot pada hewan ayam?
                                     </td>
                                     <td class="text-center">
                                         <input type="checkbox" class="form-check-input"
@@ -145,7 +145,7 @@
                                 </tr>
                                 <tr>
                                     <td class="text-center">2</td>
-                                    <td class="">Apakah banyak ternak yang sakit dengan gejala serupa?</td>
+                                    <td class="">Apakah banyak ayam yang sakit dengan gejala serupa?</td>
                                     <td class="text-center">
                                         <input type="checkbox" class="form-check-input"
                                             id="pertanyaan2"name="resultPertanyaan[]" value="2">
@@ -153,7 +153,7 @@
                                 </tr>
                                 <tr>
                                     <td class="text-center">3</td>
-                                    <td class="">Apakah ternak menunjukkan gejala klinis yang serupa, seperti demam,
+                                    <td class="">Apakah ayam menunjukkan gejala klinis yang serupa, seperti demam,
                                         gangguan pernapasan, pencernaan, penurunan nafsu makan, atau gejala lain?</td>
                                     <td class="text-center">
                                         <input type="checkbox" class="form-check-input"id="pertanyaan3"
