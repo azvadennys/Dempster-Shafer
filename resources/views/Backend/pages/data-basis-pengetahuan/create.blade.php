@@ -1,4 +1,4 @@
-@extends('Backend.layouts.main')
+@extends('layouts.app')
 
 @section('content-wrapper')
     <div class="container-fluid">

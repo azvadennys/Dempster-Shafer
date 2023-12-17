@@ -1,4 +1,4 @@
-@extends('Backend.layouts.main')
+@extends('layouts.app')
 
 @section('content-wrapper')
     <div class="container-fluid">
@@ -50,8 +50,8 @@
                         <label for="nama_penyakit" class="col-sm-2 col-form-label text-custom">Solusi Penyakit</label>
                         <div class="col-sm-8" id="containerSolusi">
                             @foreach (json_decode($dataPenyakit['solusi']) as $solusi)
-                                <input type="text" class="form-control mb-2" id="solusi_penyakit" name="solusi_penyakit[]"
-                                    value="{{ $solusi }}">
+                                <input type="text" class="form-control mb-2" id="solusi_penyakit"
+                                    name="solusi_penyakit[]" value="{{ $solusi }}">
                             @endforeach
                             <button class="btn btn-custom-2 mb-2" type="button" onclick="addInput('nama_penyakit');">
                                 <i class="fas fa-plus me-1"></i>

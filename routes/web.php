@@ -35,7 +35,7 @@ Route::post('diagnosa', [DiagnosaController::class, 'kalkulator']);
 // });
 
 Route::middleware(['auth'])->group(function () {
-    Route::post('logout', [LoginController::class, 'logout']);
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('data-riwayat', [DataRiwayatController::class, 'index'])->name('data.riwayat');
     Route::get('data-riwayat/{id_diagnosa}', [DataRiwayatController::class, 'showdata']);
