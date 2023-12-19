@@ -24,14 +24,16 @@ use Illuminate\Support\Facades\Route;
 
 // Route::middleware('guest')->group(function () {
 Route::get('/', [HomeController::class, 'index'])->name('login');
-Route::get('diagnosa', [DiagnosaController::class, 'index']);
+Route::get('diagnosa', [DiagnosaController::class, 'index2'])->name('diagnosa');
+// Route::get('diagnosa2', [DiagnosaController::class, 'index']);
 Route::get('diagnosa/{data_diagnosa}', [DiagnosaController::class, 'showdata']);
 Route::get('pedoman', [PedomanController::class, 'index']);
 Route::get('login', [LoginController::class, 'index']);
 Route::get('registrasi', [LoginController::class, 'registrasi'])->name('registrasi');
-Route::post('registrasi', [LoginController::class, 'prosesregistrasi'])->name('registrasi.proses');;
+Route::post('registrasi', [LoginController::class, 'prosesregistrasi'])->name('registrasi.proses');
 Route::post('login', [LoginController::class, 'authenticate']);
 Route::post('diagnosa', [DiagnosaController::class, 'kalkulator']);
+Route::post('cekDataBerikutnya', [DiagnosaController::class, 'cekDataBerikutnya'])->name('cekDataBerikutnya');
 // });
 
 Route::middleware(['auth'])->group(function () {

@@ -1,9 +1,9 @@
 :root {
     --color-one: white;
     --color-two: rgba(30, 149, 228, 0.55);
-    --color-three: #f37121;
+    --color-three: #21c2f3;
     --RGB-two: rgba(243, 113, 33, 0.55);
-    --color-four: #184d47;
+    --color-four:  rgb(142, 36, 170);
     --RGB-one: rgba(24, 77, 71, 0.55);
 }
 
@@ -121,7 +121,7 @@
     background-color: var(--color-one);
 }
 
-.form-control {
+/* .form-control {
     display: block;
     width: 100%;
     padding: 0.375rem 0.75rem;
@@ -162,7 +162,7 @@
     appearance: none;
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
-}
+} */
 
 .form-check-input:focus {
     border-color: var(--color-three);
