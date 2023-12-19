@@ -8,6 +8,7 @@ use App\Models\Diagnosa;
 use App\Models\Gejala;
 use App\Models\Penyakit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DiagnosaController extends Controller
 {
@@ -22,7 +23,46 @@ class DiagnosaController extends Controller
         // dd(Gejala::orderBy('kategori', 'asc')->get()->groupBy('kategori'));
         return view('Frontend.pages.diagnosa', $datas);
     }
+    public function index2()
+    {
+        $GejalaUmum = BasisPengetahuan::with('gejala')->select('tabel_basis_pengetahuan.kode_gejala', DB::raw('COUNT(*) as total'))
+            ->leftJoin('tabel_data_gejala', 'tabel_data_gejala.id_gejala', '=', 'tabel_basis_pengetahuan.kode_gejala')
+            ->groupBy('tabel_basis_pengetahuan.kode_gejala')
+            ->orderByDesc('total')->limit(5)
+            ->get();
+        // dd($GejalaUmum);
+        $datas = [
+            'titlePage' => 'Diagnosa',
+            'navLink' => 'diagnosa',
+            'index' => Gejala::all(),
+            'GejalaUmum' => $GejalaUmum,
+            // 'gejala' => Gejala::orderBy('kategori', 'asc')->get()->groupBy('kategori'),
+        ];
+        // dd(Gejala::orderBy('kategori', 'asc')->get()->groupBy('kategori'));
+        return view('Frontend.pages.diagnosa2', $datas);
+    }
+    public function cekDataBerikutnya(Request $request)
+    {
+        $arrHasilUser = $request->input('resultGejala');
+        $penyakit = BasisPengetahuan::whereIn('kode_gejala', $arrHasilUser)
+            ->select('kode_penyakit')
+            ->distinct()
+            ->get();
 
+        $gejalaSelanjutnya = BasisPengetahuan::whereIn('kode_penyakit', $penyakit)
+            ->select('kode_gejala', DB::raw('count(*) as jumlah'))
+            ->groupBy('kode_gejala')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+
+        // echo $gejalaSelanjutnya;
+        // dd($gejalaSelanjutnya);
+        return response()->json([
+            'success' => true,
+            'message' => 'Data processed successfully',
+            'data' => $gejalaSelanjutnya // or any other data you wish to return
+        ]);
+    }
     public function showdata($data_diagnosa)
     {
         $dataDiagnosa = Diagnosa::find($data_diagnosa)->toArray();

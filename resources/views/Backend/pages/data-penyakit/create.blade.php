@@ -1,4 +1,4 @@
-@extends('Backend.layouts.main')
+@extends('layouts.app')
 
 @section('content-wrapper')
     <div class="container-fluid">
@@ -61,7 +61,7 @@
                                 <i class="fas fa-save me-1"></i>
                                 Simpan Data
                             </button>
-                            <button class="btn btn-secondary" type="reset">
+                            <button class="btn btn-warning" type="reset">
                                 <i class="fas fa-ban me-1"></i>
                                 Cancel
                             </button>

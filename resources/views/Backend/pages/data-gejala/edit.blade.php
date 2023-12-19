@@ -1,4 +1,4 @@
-@extends('Backend.layouts.main')
+@extends('layouts.app')
 
 @section('content-wrapper')
     <div class="container-fluid">
@@ -61,7 +61,7 @@
                     <div class="mb-3 row">
                         <label for="kategori" class="col-sm-2 col-form-label text-custom">Kategori</label>
                         <div class="col-sm-5">
-                            <select class="form-select" id="kategori" name="kategori">
+                            <select class="form-control" id="kategori" name="kategori">
                                 <option value="" selected disabled>Pilih Kategori</option>
                                 @foreach ($kategori as $index)
                                     <option value="{{ $index }}"
@@ -83,7 +83,7 @@
                                 <i class="fas fa-save me-1"></i>
                                 Simpan Data
                             </button>
-                            <button class="btn btn-secondary" type="reset">
+                            <button class="btn btn-warning" type="reset">
                                 <i class="fas fa-ban me-1"></i>
                                 Cancel
                             </button>
