@@ -5,7 +5,7 @@
     Tip 2: you can also add an image using data-image tag
 -->
     <div class="logo text-center">
-        <a href="{{ route('dashboard') }}">
+        <a href="{{ route('login') }}">
             <h3>SISTEM PAKAR</h3>
         </a>
     </div>
