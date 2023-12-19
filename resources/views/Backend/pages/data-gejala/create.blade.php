@@ -60,7 +60,7 @@
                     <div class="mb-3 row">
                         <label for="kategori" class="col-sm-2 col-form-label text-custom">Kategori</label>
                         <div class="col-sm-5">
-                            <select class="form-select" id="kategori" name="kategori">
+                            <select class="form-control" id="kategori" name="kategori">
                                 <option value="" selected disabled>Pilih Kategori</option>
                                 @foreach ($kategori as $index)
                                     <option value="{{ $index }}" {{ old('kategori') == $index ? 'selected' : '' }}>
@@ -71,11 +71,10 @@
                         </div>
                     </div>
 
-
                     <div class="mb-3 row">
                         <label for="jenis_media" class="col-sm-2 col-form-label text-custom">Jenis Media</label>
                         <div class="col-sm-5">
-                            <select class="form-select" id="jenis_media" name="jenis_media" id="jenis_media">
+                            <select class="form-control" id="jenis_media" name="jenis_media" id="jenis_media">
                                 <option selected disabled>Pilih Jenis Media</option>
                                 <option value="gambar">Gambar</option>
                                 <option value="youtube">Video Youtube</option>
@@ -145,7 +144,7 @@
                                 <i class="fas fa-save me-1"></i>
                                 Simpan Data
                             </button>
-                            <button class="btn btn-secondary" type="reset">
+                            <button class="btn btn-warning" type="reset">
                                 <i class="fas fa-ban me-1"></i>
                                 Cancel
                             </button>

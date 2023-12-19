@@ -1,6 +1,6 @@
 :root {
     --color-one: white;
-    --color-two: #d6efc7;
+    --color-two: rgba(30, 149, 228, 0.55);
     --color-three: #f37121;
     --RGB-two: rgba(243, 113, 33, 0.55);
     --color-four: #184d47;
@@ -60,7 +60,7 @@
 }
 
 .kartu-100 > .card-body {
-    background-color: var(--color-two);
+    background-image: linear-gradient(to right, #fbd8f8, #f9d8f7, #f5d6f5, #ecd5f2, #e3d3ee, #d8cdeb, #c9c5e6, #bdc1e4, #b7bddf, #afbcdc);
     color: white;
 }
 

@@ -56,10 +56,10 @@
             <div class="main-panel">
                 @include('layouts.navbars.auth.topnav', ['title' => $title ?? ''])
                 {{-- <div class="content"> --}}
-                    @yield('content-wrapper')
+                @yield('content-wrapper')
                 {{-- </div> --}}
 
-                @include('layouts.footers.auth.footer')
+                {{-- @include('layouts.footers.auth.footer') --}}
             </div>
             {{-- @include('components.fixed-plugin') --}}
         @endauth

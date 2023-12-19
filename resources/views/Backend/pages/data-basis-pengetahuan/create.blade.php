@@ -22,7 +22,7 @@
                     <div class="mb-3 row">
                         <label for="kode_penyakit" class="col-sm-2 col-form-label text-custom">Kode Penyakit</label>
                         <div class="col-sm-5">
-                            <select class="form-select" id="kode_penyakit" name="kode_penyakit">
+                            <select class="form-control" id="kode_penyakit" name="kode_penyakit">
                                 <option selected disabled>Pilih Kode Penyakit...</option>
                                 @foreach ($dataPenyakit as $penyakit)
                                     @if (old('kode_penyakit') == $penyakit->kode_penyakit)
@@ -39,7 +39,7 @@
                     <div class="mb-3 row">
                         <label for="kode_gejala" class="col-sm-2 col-form-label text-custom">Kode Gejala</label>
                         <div class="col-sm-5">
-                            <select class="form-select" id="kode_gejala" name="kode_gejala">
+                            <select class="form-control" id="kode_gejala" name="kode_gejala">
                                 <option selected disabled>Pilih Kode Gejala...</option>
                                 @foreach ($dataGejala as $gejala)
                                     @if (old('kode_gejala') == $gejala->kode_gejala)
@@ -59,7 +59,7 @@
                                 <i class="fas fa-save me-1"></i>
                                 Simpan Data
                             </button>
-                            <button class="btn btn-secondary" type="reset">
+                            <button class="btn btn-warning" type="reset">
                                 <i class="fas fa-ban me-1"></i>
                                 Cancel
                             </button>
