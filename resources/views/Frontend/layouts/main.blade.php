@@ -15,7 +15,7 @@
     {{-- Custom Style --}}
     <link rel=" stylesheet" href="{{ URL::to('bin/css/style.css') }}">
 
-    <title>Sistem Pakar{{ isset($titlePage) ? ' | ' . $titlePage : '' }}</title>
+    <title>SISTEM PAKAR{{ isset($titlePage) ? ' | ' . $titlePage : '' }}</title>
 </head>
 
 <body>

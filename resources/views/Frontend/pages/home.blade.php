@@ -6,7 +6,8 @@
             <div class="my-lg-5">
                 <h4 class="text-center text-dark">SISTEM PAKAR DIAGNOSIS PENYAKIT VIRAL PADA AYAM PEJANTAN</h4>
                 <div class="text-center">
-                    <img src="{{ asset('8576739-01.png') }}" alt="" width="450" class="img-fluid">
+                    <img src="{{ asset('1704459372889-removebg-preview.png') }}" alt="" width="300"
+                        class="img-fluid">
                 </div>
 
             </div>

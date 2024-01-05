@@ -44,6 +44,14 @@ class CreateUsersTable extends Migration
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
+            [
+                'name' => 'User',
+                'email' => 'user@gmail.com',
+                'password' => Hash::make('123'),
+                'role' => 'user',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
         ];
 
         DB::table('users')->insert($insertedData);
