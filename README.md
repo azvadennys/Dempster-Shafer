@@ -8,8 +8,7 @@
 | Composser | <code>NEW</code> |
 
 ## Installation / Instalasi
-Direkomendasikan menggunakan php > 8.0. Pastikan repo ini telah diclone, kemudian buka CLI dan posisikan direktori aktif ke repo ini.
-Silakan pilih salah satu dari dua cara di bawah ini.
+Direkomendasikan menggunakan php > 8.0. Pastikan repo ini telah di clone
 
 ### Cara Clone Repository
 Buka git Bash dan Jalankan perintah berikut untuk cloning
