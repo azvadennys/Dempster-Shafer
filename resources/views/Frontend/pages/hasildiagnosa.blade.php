@@ -2,7 +2,7 @@
 
 @section('content-wrapper')
     <div class="container-fluid p-0 m-0 my-5">
-        <h3 class="text-center mb-5 text-custom">Hasil Diagnosa</h3>
+        <h3 class="text-center mb-5 text-custom">Hasil Diagnosis</h3>
         <div class="card kartu-custom mb-3">
             <div class="card-header text-white fw-bold">
                 Hasil Konsultasi
@@ -135,7 +135,7 @@
             <div class="card-footer"></div>
         </div>
         <a href="{{ URL::to('diagnosa') }}" class="btn btn-custom"><i class="fa-solid fa-arrow-left me-1"></i> Kembali ke
-            Halaman Diagnosa</a>
+            Halaman Diagnosis</a>
     </div>
 @endsection
 

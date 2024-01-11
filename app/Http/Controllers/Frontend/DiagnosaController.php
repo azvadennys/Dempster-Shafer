@@ -15,7 +15,7 @@ class DiagnosaController extends Controller
     public function index()
     {
         $datas = [
-            'titlePage' => 'Diagnosa',
+            'titlePage' => 'Diagnosis',
             'navLink' => 'diagnosa',
             'dataGejala' => Gejala::all(),
             'gejala' => Gejala::orderBy('kategori', 'asc')->get()->groupBy('kategori'),
@@ -32,7 +32,7 @@ class DiagnosaController extends Controller
             ->get();
         // dd($GejalaUmum);
         $datas = [
-            'titlePage' => 'Diagnosa',
+            'titlePage' => 'Diagnosis',
             'navLink' => 'diagnosa',
             'index' => Gejala::all(),
             'GejalaUmum' => $GejalaUmum,
@@ -72,7 +72,7 @@ class DiagnosaController extends Controller
         // dd($penyakit);
 
         $dataTampilan = [
-            'titlePage' => 'Hasil Diagnosa',
+            'titlePage' => 'Hasil Diagnosis',
             'navLink' => 'diagnosa',
             'gejalaSebenarnya' => $penyakit,
             'namaPemilik' => $dataDiagnosa['user']['name'],
@@ -86,7 +86,7 @@ class DiagnosaController extends Controller
     public function kalkulator(Request $request)
     {
         if (auth()->user() == False) {
-            return redirect()->to('/')->with('error', 'Login Diperlukan Untuk Diagnosa');
+            return redirect()->to('/')->with('error', 'Login Diperlukan Untuk Diagnosis');
         }
 
         $arrHasilUser = $request->input('resultGejala');

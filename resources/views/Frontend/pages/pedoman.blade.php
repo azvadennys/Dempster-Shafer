@@ -29,7 +29,7 @@
                         <ol class="text-custom">
                             <li>Login terlebih dahulu, jika belum punya akun silahkan <a
                                     href="{{ route('registrasi') }}">registrasi</a> </li>
-                            <li>Masuk ke halaman diagnosa</li>
+                            <li>Masuk ke halaman diagnosis</li>
                             <li>Pilih gejala yang dialami</li>
                             <li>Lalu, pilih proses data untuk melihat hasil</li>
                             <li>Riwayat Diagnosis agar dapat anda lihat hasil daignosis terdahulu

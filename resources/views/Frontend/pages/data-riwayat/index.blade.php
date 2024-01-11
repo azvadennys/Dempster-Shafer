@@ -47,7 +47,7 @@
                     <thead class="text-center">
                         <tr>
                             <th class="align-middle">No.</th>
-                            <th class="align-middle">Hasil Diagnosa</th>
+                            <th class="align-middle">Hasil Diagnosis</th>
                             <th class="align-middle">Diproses</th>
                             <th class="align-middle">Action</th>
                         </tr>

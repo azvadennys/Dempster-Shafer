@@ -2,7 +2,7 @@
 
 @section('content-wrapper')
     <div class="container-fluid p-0 m-0 my-5">
-        <h3 class="text-center mb-5 text-custom">Halaman Diagnosa</h3>
+        <h3 class="text-center mb-5 text-custom">Halaman Diagnosis</h3>
         @guest
             <div class="row justify-content-center">
                 <div class="col-sm-6 my-lg-5 px-lg-5 ">
@@ -10,7 +10,7 @@
                         @guest
                             <div class="card-body">
                                 <h4 class="card-title text-center text-custom mb-4">Login</h4>
-                                <h6 class="card-title text-center text-warning mb-4">Anda harus login untuk diagnosa!</h6>
+                                <h6 class="card-title text-center text-warning mb-4">Anda harus login untuk diagnosis!</h6>
                                 @if (session()->has('error'))
                                     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                                         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -188,7 +188,7 @@
                 @php
                     $isFirstProduct = true;
                 @endphp
-                
+
                 <div class="card-body">
                     <form action="{{ URL::to('diagnosa') }}" method="post">
                         @csrf
@@ -253,7 +253,7 @@
                                             </a>
                                             </h5>
                                         </div>
-            
+
                                         <div id="collapse-{{ preg_replace('/\s+/', '_', $category) }}"
                                             class="collapse  @if ($isFirstProduct) show
                                         @php
@@ -268,7 +268,7 @@
                                                             <div class="card-body px-4">
                                                                 <div id="content " style="overflow: hidden" height="175">
                                                                     @if (strpos($gejala['media'], $gejala['kode_gejala']) !== false)
-                                                                        <img src="{{ asset('gejala/' . $gejala['media']) }}" class="rounded border border-dark" 
+                                                                        <img src="{{ asset('gejala/' . $gejala['media']) }}" class="rounded border border-dark"
                                                                             alt="Image" height="175">
                                                                     @else
                                                                         <iframe height="175" src="{{ $gejala['media'] }}" class="rounded border border-dark"
@@ -290,7 +290,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                              
+
                             </div>
                         </div>
                         {{-- </div> --}}

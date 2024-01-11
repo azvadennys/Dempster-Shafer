@@ -49,7 +49,7 @@
                             <th class="align-middle">No.</th>
                             <th class="align-middle">Nama Pemilik</th>
                             <th class="align-middle">Dibuat</th>
-                            <th class="align-middle">Hasil Diagnosa</th>
+                            <th class="align-middle">Hasil Diagnosis</th>
                             <th>Action</th>
                         </tr>
                     </thead>

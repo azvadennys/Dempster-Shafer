@@ -2,7 +2,7 @@
 
 @section('content-wrapper')
     <div class="container-fluid p-0 m-0 my-5">
-        <h3 class="text-center mb-5 text-custom">Halaman Diagnosa</h3>
+        <h3 class="text-center mb-5 text-custom">Halaman Diagnosis</h3>
         @guest
             <div class="row justify-content-center">
                 <div class="col-sm-6 my-lg-5 px-lg-5 ">
@@ -10,7 +10,7 @@
                         @guest
                             <div class="card-body">
                                 <h4 class="card-title text-center text-custom mb-4">Login</h4>
-                                <h6 class="card-title text-center text-warning mb-4">Anda harus login untuk diagnosa!</h6>
+                                <h6 class="card-title text-center text-warning mb-4">Anda harus login untuk diagnosis!</h6>
                                 @if (session()->has('error'))
                                     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                                         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -160,7 +160,7 @@
                                         <use xlink:href="#exclamation-triangle-fill" />
                                     </svg>
                                     <div class="text-center">
-                                        Diagnosa anda tidak dapat diproses, Minimal masukan 2 gejala
+                                        Diagnosis anda tidak dapat diproses, Minimal masukan 2 gejala
                                     </div>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>

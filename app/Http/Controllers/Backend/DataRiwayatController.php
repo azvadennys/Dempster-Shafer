@@ -40,7 +40,7 @@ class DataRiwayatController extends Controller
         $penyakit = BasisPengetahuan::with('gejala')->where('kode_penyakit', $kode_penyakit)->get();
 
         $dataTampilan = [
-            'titlePage' => 'Hasil Diagnosa',
+            'titlePage' => 'Hasil Diagnosis',
             'navLink' => 'diagnosa',
             'gejalaSebenarnya' => $penyakit,
             'namaPemilik' => $dataDiagnosa['user']['name'],
