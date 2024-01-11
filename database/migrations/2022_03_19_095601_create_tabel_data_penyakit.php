@@ -17,8 +17,8 @@ class CreateTabelDataPenyakit extends Migration
     {
         Schema::create('tabel_data_penyakit', function (Blueprint $table) {
             $table->id('id_penyakit');
-            $table->string('kode_penyakit')->unique();
-            $table->string('nama_penyakit');
+            $table->string('kode_penyakit', 5)->unique();
+            $table->string('nama_penyakit', 50);
             $table->longText('solusi');
             $table->timestamps();
         });

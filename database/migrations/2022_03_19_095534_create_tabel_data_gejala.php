@@ -17,10 +17,10 @@ class CreateTabelDataGejala extends Migration
     {
         Schema::create('tabel_data_gejala', function (Blueprint $table) {
             $table->id('id_gejala');
-            $table->string('kode_gejala')->unique();
-            $table->string('gejala');
-            $table->string('media');
-            $table->string('kategori',40);
+            $table->string('kode_gejala', 5)->unique();
+            $table->string('gejala', 200);
+            $table->string('media', 100);
+            $table->string('kategori', 40);
             $table->double('nilai_densitas');
             $table->timestamps();
         });
