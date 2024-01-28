@@ -11,7 +11,12 @@
                 <li class="nav-item">
                     <a class="nav-link {{ $navLink == 'home' ? 'active' : '' }}" href="{{ URL::to('/') }}">Home</a>
                 </li>
-                <li class="nav-item">
+
+                <li class="nav-item"
+                    @auth
+@if (auth()->user()->role == 'admin')
+hidden
+                            @endif @endauth>
                     <a class="nav-link {{ $navLink == 'diagnosa' ? 'active' : '' }}"
                         href="{{ URL::to('diagnosa') }}">Diagnosis</a>
                 </li>
