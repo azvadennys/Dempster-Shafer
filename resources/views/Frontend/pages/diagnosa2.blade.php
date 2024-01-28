@@ -199,7 +199,7 @@
                         Proses Data
                     </button>
                     <a href="{{ route('diagnosa') }}" class="btn btn-secondary fw-bold"><i
-                            class="fa-solid fa-ban me-1"></i>Cancle</a>
+                            class="fa-solid fa-ban me-1"></i>Cancel</a>
 
                 </div>
                 </form>
