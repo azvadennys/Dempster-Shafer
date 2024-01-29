@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\DataBasisPengetahuanController;
 use App\Http\Controllers\Backend\DataGejalaController;
@@ -50,3 +50,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('data-gejala', DataGejalaController::class)->except('show');
     Route::resource('data-basis-pengetahuan', DataBasisPengetahuanController::class)->except('show');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -38,8 +38,6 @@ class DiagnosaController extends Controller
             'GejalaUmum' => $GejalaUmum,
             // 'gejala' => Gejala::orderBy('kategori', 'asc')->get()->groupBy('kategori'),
         ];
-        // dd(Gejala::orderBy('kategori', 'asc')->get()->groupBy('kategori'));
-        // dd(auth()->user());
         if (auth()->user() != NULL) {
             if (auth()->user()->role == 'admin') {
                 return redirect()->to(route('login'));
@@ -48,6 +46,7 @@ class DiagnosaController extends Controller
                 return view('Frontend.pages.diagnosa2', $datas);
             }
         }
+        // dd(Gejala::orderBy('kategori', 'asc')->get()->groupBy('kategori'));
         return view('Frontend.pages.diagnosa2', $datas);
     }
     public function cekDataBerikutnya(Request $request)
@@ -122,15 +121,9 @@ class DiagnosaController extends Controller
                 $resultData[$key]['belief'] = $dataNilaiDensitas[$key][0]['nilai_densitas'];
                 $resultData[$key]['plausibility'] = 1 - $dataNilaiDensitas[$key][0]['nilai_densitas'];
             }
-            echo '<pre>';
-            print_r($dataGejala);
-            print_r($resultData);
-            echo '</pre>';
+
             $variabelTampilan = $this->mulaiPerhitungan($resultData);
 
-            echo '<pre>';
-            print_r($variabelTampilan);
-            echo '</pre>';
             foreach ($dataGejala as $key => $value) {
                 $variabelTampilan['Gejala_Penyakit'][$key]['kode_gejala'] = $arrHasilUser[$key];
                 $variabelTampilan['Gejala_Penyakit'][$key]['nama_gejala'] = $value;
@@ -150,7 +143,7 @@ class DiagnosaController extends Controller
             $diagnosa->save();
             $idDiagnosa = $diagnosa->id_diagnosa;
 
-            // return redirect()->to('diagnosa/' . $idDiagnosa);
+            return redirect()->to('diagnosa/' . $idDiagnosa);
             // }
         }
     }
@@ -180,10 +173,6 @@ class DiagnosaController extends Controller
         $persentase = (round($result['data'][$indexMaxValue]['value'], 3) * 100) . " %";
         // $persentase = ($result['data'][$indexMaxValue]['value'] * 100) . " %";
         // dd($persentase);
-        echo 'RESULT : <br>';
-        echo '<pre> ';
-        print_r($result['data']);
-        echo '</pre>';
         $kodePenyakit = $result['data'][$indexMaxValue]['array'][0];
         $dataPenyakit = Penyakit::where('kode_penyakit', $kodePenyakit)
             ->select('nama_penyakit')
@@ -212,18 +201,8 @@ class DiagnosaController extends Controller
         }
 
         if ($indeks < $jumlah) {
-
-            echo 'Hasil akhir :' . $indeks . ' <br>';
-            echo '<pre> ';
-            print_r($hasilAkhir);
-            echo '</pre><br>';
             return $this->startingPoint($jumlah, $myData, $hasilAkhir, $indeks + 1);
         } else {
-
-            echo 'Hasil akhir : <br>';
-            echo '<pre> ';
-            print_r($hasilAkhir);
-            echo '</pre>';
             return $hasilAkhir;
         }
     }
@@ -233,35 +212,18 @@ class DiagnosaController extends Controller
         $hasilAkhir['data'] = [];
 
         $hasilSementara = [];
-
-        echo 'array1 : <br>';
-        echo '<pre> ';
-        print_r($array1);
-        echo '</pre> <br>';
-        echo 'array2 : <br>';
-        echo '<pre> ';
-        print_r($array2);
-        echo '</pre> <br>';
         $z = 0;
         for ($x = 0; $x < count($array1['data']); $x++) {
             for ($y = 0; $y < count($array2['data']); $y++) {
-                // echo count($array1['data'][$x]['array']) . ' -> ' . count($array2['data'][$y]['array']);
                 if (count($array1['data'][$x]['array']) != 0 && count($array2['data'][$y]['array']) != 0) {
                     $hasilSementara[$z]['array'] = json_encode(array_values(array_intersect($array1['data'][$x]['array'], $array2['data'][$y]['array'])));
-                    echo $hasilSementara[$z]['array'];
                     if (count(json_decode($hasilSementara[$z]['array'])) == 0) {
                         $hasilSementara[$z]['status'] = "Himpunan Kosong";
                     }
                 } else {
                     $hasilSementara[$z]['array'] = json_encode(array_merge($array1['data'][$x]['array'], $array2['data'][$y]['array']));
-                    echo $hasilSementara[$z]['array'];
                 }
                 $hasilSementara[$z]['value'] = $array1['data'][$x]['value'] * $array2['data'][$y]['value'];
-
-                echo 'hasilSementara : ' . $z . ' -> ' . $array1['data'][$x]['value'] . ' * ' . $array2['data'][$y]['value'] . '<br>';
-                echo '<pre> ';
-                print_r($hasilSementara[$z]['value']);
-                echo '</pre> <br>';
                 $z++;
             }
         }
@@ -283,10 +245,6 @@ class DiagnosaController extends Controller
             }
         }
 
-        echo 'hasil Sementara : <br>';
-        echo '<pre> ';
-        print_r($hasilSementara);
-        echo '</pre> <br>';
         $tetapan = 1 - $tetapan;
 
         $finalResult = [];
@@ -302,17 +260,11 @@ class DiagnosaController extends Controller
                     }
                 }
             }
-
             $finalResult[$y]['value'] = $finalResult[$y]['value'] / $tetapan;
         }
 
         for ($i = 0; $i < count($finalResult); $i++) {
             $hasilAkhir['data'][$i] = $finalResult[$i];
-
-            // echo 'hasilSementara :' . $i . ' <br>';
-            // echo '<pre> ';
-            // print_r($hasilAkhir);
-            // echo '</pre>';
         }
 
         return $hasilAkhir;

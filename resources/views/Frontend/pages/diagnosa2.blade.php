@@ -63,7 +63,19 @@
                                         <input type="checkbox" class="form-check-input" id="remember" name="remember">
                                         <label class="form-check-label text-custom" for="remember">Remember
                                             Me</label>
-                                        <a href="{{ route('registrasi') }}" class="mx-4">Belum Punya Akun ?</a>
+                                    </div>
+
+                                    <div class="row justify-content-center mb-2">
+                                        <div class="col-6">
+                                            <a href="{{ route('registrasi') }}" class="btn btn-link">Belum Punya Akun ?</a>
+                                        </div>
+                                        <div class="col-6">
+                                            @if (Route::has('password.request'))
+                                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                    {{ __('Lupa Password?') }}
+                                                </a>
+                                            @endif
+                                        </div>
                                     </div>
                                     <div class="d-grid gap-2">
                                         <button type="submit" class="btn btn-custom-2 fw-bold"><i

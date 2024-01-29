@@ -9,7 +9,8 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link {{ $navLink == 'home' ? 'active' : '' }}" href="{{ URL::to('/') }}">Home</a>
+                    <a class="nav-link {{($navLink ?? '') == 'home' ? 'active' : '' }}"
+                        href="{{ URL::to('/') }}">Home</a>
                 </li>
 
                 <li class="nav-item"
@@ -17,23 +18,23 @@
 @if (auth()->user()->role == 'admin')
 hidden
                             @endif @endauth>
-                    <a class="nav-link {{ $navLink == 'diagnosa' ? 'active' : '' }}"
+                    <a class="nav-link {{($navLink ?? '') == 'diagnosa' ? 'active' : '' }}"
                         href="{{ URL::to('diagnosa') }}">Diagnosis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $navLink == 'pedoman' ? 'active' : '' }}"
+                    <a class="nav-link {{($navLink ?? '') == 'pedoman' ? 'active' : '' }}"
                         href="{{ URL::to('pedoman') }}">Pedoman</a>
                 </li>
 
                 @auth
                     @if (auth()->user()->role == 'admin')
                         <li class="nav-item">
-                            <a class="nav-link {{ $navLink == 'Dashboard' ? 'active' : '' }}"
+                            <a class="nav-link {{($navLink ?? '') == 'Dashboard' ? 'active' : '' }}"
                                 href="{{ route('dashboard') }}">Dashboard</a>
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link {{ $navLink == 'data-riwayat' ? 'active' : '' }}"
+                            <a class="nav-link {{($navLink ?? '') == 'data-riwayat' ? 'active' : '' }}"
                                 href="{{ route('data.riwayat') }}">Riwayat Diagnosis</a>
                         </li>
                     @endif
